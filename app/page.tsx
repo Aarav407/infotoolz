@@ -34,7 +34,7 @@ export default function HomePage() {
           <div className="mt-8 text-center sm:hidden">
             <Link
               href="/products"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-[#00AFB9]"
             >
               View All Products
               <ArrowRight className="h-4 w-4" />
@@ -44,17 +44,17 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16">
-        <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 p-8 md:p-12 text-white text-center">
+        <div className="rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-12 text-white text-center border border-[#00AFB9]/20">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Need a Quote or Bulk Order?
           </h2>
-          <p className="text-blue-100 mb-6 max-w-xl mx-auto">
+          <p className="text-slate-300 mb-6 max-w-xl mx-auto">
             We supply IT hardware for businesses, resellers, and individual
             customers. Get in touch for pricing, availability, and expert advice.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#00AFB9] px-6 py-3 font-semibold text-white hover:bg-[#009AA3] transition-colors"
           >
             Contact Us for Inquiry
             <ArrowRight className="h-4 w-4" />

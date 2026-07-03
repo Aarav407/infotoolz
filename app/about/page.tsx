@@ -1,10 +1,11 @@
 import { SectionHeader } from "@/components/Sections";
 import { BadgeCheck, Users, Building2, Globe } from "lucide-react";
+import { company } from "@/data/company";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about InfoToolz — your trusted IT hardware reseller.",
+  description: `Learn about ${company.name} — your trusted IT hardware reseller.`,
 };
 
 const stats = [
@@ -18,14 +19,14 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
       <SectionHeader
-        title="About InfoToolz"
+        title={`About ${company.name}`}
         subtitle="Your trusted partner for genuine IT hardware"
       />
 
       <div className="grid gap-12 lg:grid-cols-2 items-center mb-16">
         <div>
           <p className="text-slate-600 leading-relaxed mb-4">
-            InfoToolz is a leading IT hardware reseller specializing in computer
+            {company.name} is a leading IT hardware reseller specializing in computer
             components, laptops, peripherals, and networking equipment. We partner
             with top global brands to bring you genuine products at competitive prices.
           </p>
@@ -47,7 +48,7 @@ export default function AboutPage() {
               key={stat.label}
               className="rounded-xl border border-slate-200 bg-white p-6 text-center"
             >
-              <p className="text-2xl font-bold text-blue-600">{stat.value}</p>
+              <p className="text-2xl font-bold text-[#00AFB9]">{stat.value}</p>
               <p className="mt-1 text-sm text-slate-500">{stat.label}</p>
             </div>
           ))}
@@ -81,7 +82,7 @@ export default function AboutPage() {
             key={title}
             className="rounded-xl border border-slate-200 bg-white p-6"
           >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#00AFB9]/10 text-[#00AFB9]">
               <Icon className="h-6 w-6" />
             </div>
             <h3 className="font-semibold text-slate-900 mb-2">{title}</h3>

@@ -14,8 +14,11 @@ import {
   Zap,
   MemoryStick,
   CircuitBoard,
+  MessageCircle,
 } from "lucide-react";
 import { categories } from "@/data/categories";
+import { company } from "@/data/company";
+import { Logo } from "@/components/Logo";
 
 const iconMap: Record<string, React.ReactNode> = {
   cpu: <Cpu className="h-4 w-4" />,
@@ -42,34 +45,35 @@ export function Header() {
           </p>
           <div className="flex items-center gap-4 ml-auto">
             <a
-              href="tel:+919876543210"
-              className="flex items-center gap-1.5 hover:text-blue-300 transition-colors"
+              href={`tel:+${company.phone}`}
+              className="flex items-center gap-1.5 hover:text-[#00AFB9] transition-colors"
             >
               <Phone className="h-3.5 w-3.5" />
-              <span>+91 98765 43210</span>
+              <span>{company.phoneDisplay}</span>
             </a>
             <a
-              href="mailto:info@infotoolz.com"
-              className="hidden md:flex items-center gap-1.5 hover:text-blue-300 transition-colors"
+              href={company.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-[#25D366] transition-colors"
+            >
+              <MessageCircle className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">WhatsApp</span>
+            </a>
+            <a
+              href={`mailto:${company.email}`}
+              className="hidden md:flex items-center gap-1.5 hover:text-[#00AFB9] transition-colors"
             >
               <Mail className="h-3.5 w-3.5" />
-              <span>info@infotoolz.com</span>
+              <span>{company.email}</span>
             </a>
           </div>
         </div>
       </div>
 
       <div className="border-b border-slate-200">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4">
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-white font-bold text-lg">
-              IT
-            </div>
-            <div>
-              <span className="text-xl font-bold text-slate-900">InfoToolz</span>
-              <p className="text-xs text-slate-500 leading-none">IT Hardware Reseller</p>
-            </div>
-          </Link>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+          <Logo />
 
           <form action="/products" method="get" className="hidden md:flex flex-1 max-w-xl">
             <div className="relative w-full">
@@ -78,24 +82,24 @@ export function Header() {
                 type="search"
                 name="q"
                 placeholder="Search processors, GPUs, laptops..."
-                className="w-full rounded-lg border border-slate-300 bg-slate-50 py-2.5 pl-10 pr-4 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                className="w-full rounded-lg border border-slate-300 bg-slate-50 py-2.5 pl-10 pr-4 text-sm focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20"
               />
             </div>
           </form>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-700">
-            <Link href="/products" className="hover:text-blue-600 transition-colors">
+            <Link href="/products" className="hover:text-[#00AFB9] transition-colors">
               All Products
             </Link>
-            <Link href="/categories" className="hover:text-blue-600 transition-colors">
+            <Link href="/categories" className="hover:text-[#00AFB9] transition-colors">
               Categories
             </Link>
-            <Link href="/about" className="hover:text-blue-600 transition-colors">
+            <Link href="/about" className="hover:text-[#00AFB9] transition-colors">
               About
             </Link>
             <Link
               href="/contact"
-              className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 transition-colors"
+              className="rounded-lg bg-[#00AFB9] px-4 py-2 text-white hover:bg-[#009AA3] transition-colors"
             >
               Contact Us
             </Link>
@@ -108,10 +112,10 @@ export function Header() {
             </summary>
             <div className="absolute right-0 top-full mt-2 w-64 rounded-xl border border-slate-200 bg-white shadow-lg p-4 z-50">
               <nav className="flex flex-col gap-3 text-sm font-medium">
-                <Link href="/products" className="py-2 hover:text-blue-600">All Products</Link>
-                <Link href="/categories" className="py-2 hover:text-blue-600">Categories</Link>
-                <Link href="/about" className="py-2 hover:text-blue-600">About</Link>
-                <Link href="/contact" className="py-2 text-blue-600 font-semibold">Contact Us</Link>
+                <Link href="/products" className="py-2 hover:text-[#00AFB9]">All Products</Link>
+                <Link href="/categories" className="py-2 hover:text-[#00AFB9]">Categories</Link>
+                <Link href="/about" className="py-2 hover:text-[#00AFB9]">About</Link>
+                <Link href="/contact" className="py-2 text-[#00AFB9] font-semibold">Contact Us</Link>
               </nav>
             </div>
           </details>
@@ -125,7 +129,7 @@ export function Header() {
               <Link
                 key={cat.slug}
                 href={`/categories/${cat.slug}`}
-                className="flex items-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1.5 text-slate-600 hover:bg-white hover:text-blue-600 transition-colors"
+                className="flex items-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1.5 text-slate-600 hover:bg-white hover:text-[#00AFB9] transition-colors"
               >
                 {iconMap[cat.icon]}
                 {cat.name}
@@ -133,7 +137,7 @@ export function Header() {
             ))}
             <Link
               href="/categories"
-              className="whitespace-nowrap rounded-md px-3 py-1.5 font-medium text-blue-600 hover:bg-white transition-colors"
+              className="whitespace-nowrap rounded-md px-3 py-1.5 font-medium text-[#00AFB9] hover:bg-white transition-colors"
             >
               View All →
             </Link>

@@ -7,7 +7,8 @@ import {
   formatPrice,
   getDiscountPercent,
 } from "@/data/products";
-import { ArrowLeft, CheckCircle, XCircle, Mail, Phone } from "lucide-react";
+import { ArrowLeft, CheckCircle, XCircle, Mail, Phone, MessageCircle } from "lucide-react";
+import { company } from "@/data/company";
 import type { Metadata } from "next";
 
 interface ProductPageProps {
@@ -45,7 +46,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     <div className="mx-auto max-w-7xl px-4 py-8">
       <Link
         href="/products"
-        className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-blue-600 mb-6"
+        className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-[#00AFB9] mb-6"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Products
@@ -71,7 +72,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <div>
           <Link
             href={`/categories/${product.categorySlug}`}
-            className="text-sm font-medium text-blue-600 hover:underline"
+            className="text-sm font-medium text-[#00AFB9] hover:underline"
           >
             {product.category}
           </Link>
@@ -120,13 +121,22 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#00AFB9] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#009AA3] transition-colors"
               >
                 <Mail className="h-4 w-4" />
                 Send Inquiry
               </Link>
               <a
-                href="tel:+919876543210"
+                href={company.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#20BD5A] transition-colors"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </a>
+              <a
+                href={`tel:+${company.phone}`}
                 className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
               >
                 <Phone className="h-4 w-4" />
@@ -168,7 +178,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <Link
                 key={p.id}
                 href={`/products/${p.slug}`}
-                className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 hover:border-blue-200 hover:shadow-md transition-all"
+                className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 hover:border-[#00AFB9]/40 hover:shadow-md transition-all"
               >
                 <div className="relative h-16 w-16 shrink-0">
                   <Image
@@ -183,7 +193,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   <p className="text-sm font-semibold text-slate-900 line-clamp-2">
                     {p.name}
                   </p>
-                  <p className="text-sm font-bold text-blue-600 mt-1">
+                  <p className="text-sm font-bold text-[#00AFB9] mt-1">
                     {formatPrice(p.price)}
                   </p>
                 </div>

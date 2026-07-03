@@ -48,7 +48,7 @@ export function ProductFilters({
           name="q"
           defaultValue={currentQuery}
           placeholder="Search products..."
-          className="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-10 pr-4 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                className="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-10 pr-4 text-sm focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20"
         />
       </form>
 
@@ -60,7 +60,7 @@ export function ProductFilters({
               onClick={() => updateFilter("category", "")}
               className={`w-full text-left rounded-md px-2 py-1.5 transition-colors ${
                 !currentCategory
-                  ? "bg-blue-50 text-blue-700 font-medium"
+                  ? "bg-[#00AFB9]/10 text-[#00AFB9] font-medium"
                   : "text-slate-600 hover:bg-slate-50"
               }`}
             >
@@ -73,7 +73,7 @@ export function ProductFilters({
                 onClick={() => updateFilter("category", cat.slug)}
                 className={`w-full text-left rounded-md px-2 py-1.5 transition-colors ${
                   currentCategory === cat.slug
-                    ? "bg-blue-50 text-blue-700 font-medium"
+                    ? "bg-[#00AFB9]/10 text-[#00AFB9] font-medium"
                     : "text-slate-600 hover:bg-slate-50"
                 }`}
               >
@@ -92,7 +92,7 @@ export function ProductFilters({
               onClick={() => updateFilter("brand", "")}
               className={`w-full text-left rounded-md px-2 py-1.5 transition-colors ${
                 !currentBrand
-                  ? "bg-blue-50 text-blue-700 font-medium"
+                  ? "bg-[#00AFB9]/10 text-[#00AFB9] font-medium"
                   : "text-slate-600 hover:bg-slate-50"
               }`}
             >
@@ -105,7 +105,7 @@ export function ProductFilters({
                 onClick={() => updateFilter("brand", brand)}
                 className={`w-full text-left rounded-md px-2 py-1.5 transition-colors ${
                   currentBrand.toLowerCase() === brand.toLowerCase()
-                    ? "bg-blue-50 text-blue-700 font-medium"
+                    ? "bg-[#00AFB9]/10 text-[#00AFB9] font-medium"
                     : "text-slate-600 hover:bg-slate-50"
                 }`}
               >

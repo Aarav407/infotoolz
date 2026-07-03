@@ -475,11 +475,11 @@ export const products: Product[] = [
   },
   {
     id: "p22",
-    name: "InfoToolz Gaming Pro PC (RTX 4070, i7)",
+    name: "Infotoolz Gaming Pro PC (RTX 4070, i7)",
     slug: "infotoolz-gaming-pro-pc",
     category: "Pre-built PCs",
     categorySlug: "prebuilt-pcs",
-    brand: "InfoToolz",
+    brand: "Infotoolz",
     price: 149990,
     mrp: 164990,
     inStock: true,

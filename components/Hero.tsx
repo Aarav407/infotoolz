@@ -3,20 +3,20 @@ import { ArrowRight, Shield, Truck, Headphones, BadgeCheck } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white">
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 h-64 w-64 rounded-full bg-blue-400 blur-3xl" />
-        <div className="absolute bottom-10 right-10 h-64 w-64 rounded-full bg-indigo-400 blur-3xl" />
+        <div className="absolute top-10 left-10 h-64 w-64 rounded-full bg-[#00AFB9] blur-3xl" />
+        <div className="absolute bottom-10 right-10 h-64 w-64 rounded-full bg-[#00AFB9] blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
         <div className="max-w-2xl">
-          <span className="inline-block rounded-full bg-blue-500/20 border border-blue-400/30 px-4 py-1 text-sm font-medium text-blue-200 mb-6">
+          <span className="inline-block rounded-full bg-[#00AFB9]/20 border border-[#00AFB9]/30 px-4 py-1 text-sm font-medium text-[#00AFB9] mb-6">
             Authorized IT Hardware Reseller
           </span>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
             Your Complete IT Hardware{" "}
-            <span className="text-blue-400">Catalog</span>
+            <span className="text-[#00AFB9]">Catalog</span>
           </h1>
           <p className="text-lg text-slate-300 mb-8 leading-relaxed">
             Browse our extensive range of processors, graphics cards, laptops,
@@ -25,7 +25,7 @@ export function Hero() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500 transition-colors"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#00AFB9] px-6 py-3 font-semibold hover:bg-[#009AA3] transition-colors"
             >
               Browse All Products
               <ArrowRight className="h-4 w-4" />
@@ -50,7 +50,7 @@ export function Hero() {
               key={label}
               className="rounded-xl bg-white/5 border border-white/10 p-4 backdrop-blur-sm"
             >
-              <Icon className="h-6 w-6 text-blue-400 mb-2" />
+              <Icon className="h-6 w-6 text-[#00AFB9] mb-2" />
               <p className="font-semibold text-sm">{label}</p>
               <p className="text-xs text-slate-400">{sub}</p>
             </div>

@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MessageCircle } from "lucide-react";
 import { categories } from "@/data/categories";
+import { company } from "@/data/company";
 
 const brands = [
   "Intel", "AMD", "NVIDIA", "ASUS", "MSI", "Dell", "Lenovo",
@@ -13,12 +15,15 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white font-bold">
-                IT
-              </div>
-              <span className="text-lg font-bold text-white">InfoToolz</span>
-            </div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src={company.logo}
+                alt={company.name}
+                width={160}
+                height={48}
+                className="h-10 w-auto brightness-0 invert opacity-90"
+              />
+            </Link>
             <p className="text-sm leading-relaxed">
               Your trusted partner for IT hardware. We deal in genuine computer
               components, laptops, peripherals, and networking equipment from
@@ -35,7 +40,7 @@ export function Footer() {
                 <li key={cat.slug}>
                   <Link
                     href={`/categories/${cat.slug}`}
-                    className="hover:text-blue-400 transition-colors"
+                    className="hover:text-[#00AFB9] transition-colors"
                   >
                     {cat.name}
                   </Link>
@@ -50,22 +55,22 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/products" className="hover:text-blue-400 transition-colors">
+                <Link href="/products" className="hover:text-[#00AFB9] transition-colors">
                   All Products
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="hover:text-blue-400 transition-colors">
+                <Link href="/categories" className="hover:text-[#00AFB9] transition-colors">
                   Browse Categories
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-blue-400 transition-colors">
+                <Link href="/about" className="hover:text-[#00AFB9] transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-blue-400 transition-colors">
+                <Link href="/contact" className="hover:text-[#00AFB9] transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -77,20 +82,27 @@ export function Footer() {
               Contact
             </h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-blue-400" />
-                <span>123 Tech Park, Business District, India</span>
-              </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-blue-400" />
-                <a href="tel:+919876543210" className="hover:text-blue-400">
-                  +91 98765 43210
+                <Phone className="h-4 w-4 shrink-0 text-[#00AFB9]" />
+                <a href={`tel:+${company.phone}`} className="hover:text-[#00AFB9]">
+                  {company.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-blue-400" />
-                <a href="mailto:info@infotoolz.com" className="hover:text-blue-400">
-                  info@infotoolz.com
+                <MessageCircle className="h-4 w-4 shrink-0 text-[#25D366]" />
+                <a
+                  href={company.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25D366]"
+                >
+                  WhatsApp: {company.whatsappDisplay}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 shrink-0 text-[#00AFB9]" />
+                <a href={`mailto:${company.email}`} className="hover:text-[#00AFB9]">
+                  {company.email}
                 </a>
               </li>
             </ul>
@@ -114,7 +126,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} InfoToolz. All rights reserved. Genuine IT hardware only.</p>
+          <p>© {new Date().getFullYear()} {company.name}. All rights reserved. Genuine IT hardware only.</p>
         </div>
       </div>
     </footer>

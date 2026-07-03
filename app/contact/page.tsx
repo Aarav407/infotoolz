@@ -1,10 +1,11 @@
 import { SectionHeader } from "@/components/Sections";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MessageCircle, Clock } from "lucide-react";
+import { company } from "@/data/company";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with InfoToolz for product inquiries, bulk orders, and support.",
+  description: `Get in touch with ${company.name} for product inquiries, bulk orders, and support.`,
 };
 
 export default function ContactPage() {
@@ -21,31 +22,33 @@ export default function ContactPage() {
             {
               icon: Phone,
               title: "Phone",
-              content: "+91 98765 43210",
-              href: "tel:+919876543210",
+              content: company.phoneDisplay,
+              href: `tel:+${company.phone}`,
+            },
+            {
+              icon: MessageCircle,
+              title: "WhatsApp",
+              content: company.whatsappDisplay,
+              href: company.whatsappUrl,
+              external: true,
             },
             {
               icon: Mail,
               title: "Email",
-              content: "info@infotoolz.com",
-              href: "mailto:info@infotoolz.com",
-            },
-            {
-              icon: MapPin,
-              title: "Address",
-              content: "123 Tech Park, Business District, India",
+              content: company.email,
+              href: `mailto:${company.email}`,
             },
             {
               icon: Clock,
               title: "Business Hours",
               content: "Mon – Sat: 10:00 AM – 7:00 PM",
             },
-          ].map(({ icon: Icon, title, content, href }) => (
+          ].map(({ icon: Icon, title, content, href, external }) => (
             <div
               key={title}
               className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-5"
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#00AFB9]/10 text-[#00AFB9]">
                 <Icon className="h-5 w-5" />
               </div>
               <div>
@@ -53,7 +56,9 @@ export default function ContactPage() {
                 {href ? (
                   <a
                     href={href}
-                    className="text-slate-600 hover:text-blue-600 transition-colors"
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="text-slate-600 hover:text-[#00AFB9] transition-colors"
                   >
                     {content}
                   </a>
@@ -63,6 +68,16 @@ export default function ContactPage() {
               </div>
             </div>
           ))}
+
+          <a
+            href={company.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#25D366] px-6 py-4 text-white font-semibold hover:bg-[#20BD5A] transition-colors"
+          >
+            <MessageCircle className="h-5 w-5" />
+            Chat on WhatsApp
+          </a>
         </div>
 
         <div className="rounded-xl border border-slate-200 bg-white p-6">
@@ -70,7 +85,7 @@ export default function ContactPage() {
             Send an Inquiry
           </h3>
           <p className="text-sm text-slate-500 mb-6">
-            Tell us what you need and our team will get back to you.
+            Tell us what you need and our team will get back to you via email or WhatsApp.
           </p>
 
           <form className="space-y-4">
@@ -83,18 +98,18 @@ export default function ContactPage() {
                   id="name"
                   type="text"
                   placeholder="Your name"
-                  className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20"
                 />
               </div>
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1">
-                  Phone
+                  Phone / WhatsApp
                 </label>
                 <input
                   id="phone"
                   type="tel"
                   placeholder="+91 XXXXX XXXXX"
-                  className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20"
                 />
               </div>
             </div>
@@ -106,8 +121,8 @@ export default function ContactPage() {
               <input
                 id="email"
                 type="email"
-                placeholder="you@company.com"
-                className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                placeholder={company.email}
+                className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20"
               />
             </div>
 
@@ -119,7 +134,7 @@ export default function ContactPage() {
                 id="subject"
                 type="text"
                 placeholder="Product inquiry / Bulk order / etc."
-                className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20"
               />
             </div>
 
@@ -131,19 +146,26 @@ export default function ContactPage() {
                 id="message"
                 rows={4}
                 placeholder="Tell us about the products you need..."
-                className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 resize-none"
+                className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20 resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full rounded-lg bg-blue-600 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+              className="w-full rounded-lg bg-[#00AFB9] py-3 text-sm font-semibold text-white hover:bg-[#009AA3] transition-colors"
             >
               Send Inquiry
             </button>
 
             <p className="text-xs text-slate-400 text-center">
-              This is a display-only site. Form submission will be connected in a future update.
+              Or reach us directly on{" "}
+              <a href={company.whatsappUrl} className="text-[#25D366] hover:underline">
+                WhatsApp
+              </a>{" "}
+              or email{" "}
+              <a href={`mailto:${company.email}`} className="text-[#00AFB9] hover:underline">
+                {company.email}
+              </a>
             </p>
           </form>
         </div>

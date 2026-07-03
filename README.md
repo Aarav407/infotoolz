@@ -1,6 +1,18 @@
-# InfoToolz — IT Hardware Catalog
+# Infotoolz — IT Hardware Catalog
 
 A product showcase website for an IT hardware reseller, inspired by MD Computers. Display-only — no cart or payment gateway.
+
+## Company Details
+
+Configured in `data/company.ts`:
+
+- **Name:** Infotoolz
+- **Email:** infotoolzit@gmail.com
+- **WhatsApp:** +91 86974 55537
+
+## Logo
+
+Place your logo file at `public/images/logo.png` (or `.svg`) and update the `logo` path in `data/company.ts`. The current logo is an SVG approximation of your brand mark.
 
 ## Features
 

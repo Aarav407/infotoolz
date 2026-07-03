@@ -22,7 +22,7 @@ export function SectionHeader({ title, subtitle, href, linkText }: SectionHeader
       {href && linkText && (
         <Link
           href={href}
-          className="hidden sm:flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700"
+          className="hidden sm:flex items-center gap-1 text-sm font-semibold text-[#00AFB9] hover:text-[#009AA3]"
         >
           {linkText}
           <ArrowRight className="h-4 w-4" />
