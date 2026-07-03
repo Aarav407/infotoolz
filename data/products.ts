@@ -21,7 +21,7 @@ export const products: Product[] = [
       Socket: "LGA 1700",
       TDP: "125W",
     },
-    image: "/images/products/processor.svg",
+    image: "/images/products/intel-core-i7-14700k.jpg",
     tags: ["gaming", "intel", "14th-gen"],
   },
   {
@@ -45,7 +45,7 @@ export const products: Product[] = [
       Socket: "AM5",
       TDP: "170W",
     },
-    image: "/images/products/processor.svg",
+    image: "/images/products/amd-ryzen-9-7900x.jpg",
     tags: ["gaming", "amd", "zen4"],
   },
   {
@@ -68,7 +68,7 @@ export const products: Product[] = [
       Interface: "PCIe 4.0 x16",
       TDP: "220W",
     },
-    image: "/images/products/gpu.svg",
+    image: "/images/products/nvidia-rtx-4070-super.jpg",
     tags: ["gaming", "nvidia", "rtx"],
   },
   {
@@ -90,7 +90,7 @@ export const products: Product[] = [
       Interface: "PCIe 4.0 x16",
       TDP: "263W",
     },
-    image: "/images/products/gpu.svg",
+    image: "/images/products/amd-rx-7800-xt.jpg",
     tags: ["gaming", "amd", "rdna3"],
   },
   {
@@ -113,7 +113,7 @@ export const products: Product[] = [
       Memory: "DDR5, 4 slots, up to 128GB",
       "PCIe Slots": "1x PCIe 5.0 x16",
     },
-    image: "/images/products/motherboard.svg",
+    image: "/images/products/asus-rog-strix-b650e-f.jpg",
     tags: ["gaming", "asus", "am5"],
   },
   {
@@ -135,7 +135,7 @@ export const products: Product[] = [
       Memory: "DDR5, 4 slots, up to 192GB",
       "PCIe Slots": "1x PCIe 5.0 x16",
     },
-    image: "/images/products/motherboard.svg",
+    image: "/images/products/msi-mag-b760-tomahawk.jpg",
     tags: ["intel", "msi"],
   },
   {
@@ -158,7 +158,7 @@ export const products: Product[] = [
       Latency: "CL36",
       Voltage: "1.35V",
     },
-    image: "/images/products/memory.svg",
+    image: "/images/products/corsair-vengeance-ddr5-32gb.jpg",
     tags: ["ddr5", "corsair"],
   },
   {
@@ -180,7 +180,7 @@ export const products: Product[] = [
       Latency: "CL32",
       Voltage: "1.40V",
     },
-    image: "/images/products/memory.svg",
+    image: "/images/products/gskill-trident-z5-64gb.jpg",
     tags: ["ddr5", "rgb"],
   },
   {
@@ -203,7 +203,7 @@ export const products: Product[] = [
       "Write Speed": "6,900 MB/s",
       Form: "M.2 2280",
     },
-    image: "/images/products/storage.svg",
+    image: "/images/products/samsung-990-pro-2tb.jpg",
     tags: ["nvme", "samsung"],
   },
   {
@@ -225,7 +225,7 @@ export const products: Product[] = [
       "Write Speed": "6,300 MB/s",
       Form: "M.2 2280",
     },
-    image: "/images/products/storage.svg",
+    image: "/images/products/wd-black-sn850x-1tb.jpg",
     tags: ["nvme", "gaming"],
   },
   {
@@ -248,7 +248,7 @@ export const products: Product[] = [
       Panel: "Nano IPS",
       Response: "1ms GtG",
     },
-    image: "/images/products/monitor.svg",
+    image: "/images/products/lg-ultragear-27gp850.jpg",
     tags: ["gaming", "1440p"],
   },
   {
@@ -270,7 +270,7 @@ export const products: Product[] = [
       Panel: "IPS",
       Connectivity: "USB-C, HDMI, DP",
     },
-    image: "/images/products/monitor.svg",
+    image: "/images/products/dell-p2723qe-27-4k.jpg",
     tags: ["4k", "professional"],
   },
   {
@@ -292,7 +292,7 @@ export const products: Product[] = [
       Fan: "135mm Rifle Bearing",
       Warranty: "10 Years",
     },
-    image: "/images/products/psu.svg",
+    image: "/images/products/corsair-rm850x-850w.jpg",
     tags: ["modular", "gold"],
   },
   {
@@ -314,7 +314,7 @@ export const products: Product[] = [
       Fan: "120mm HDB",
       Warranty: "5 Years",
     },
-    image: "/images/products/psu.svg",
+    image: "/images/products/cooler-master-mwe-750w.jpg",
     tags: ["budget", "gold"],
   },
   {
@@ -337,7 +337,7 @@ export const products: Product[] = [
       "Drive Bays": "2x 3.5\", 2x 2.5\"",
       Fans: "3x 120mm RGB included",
     },
-    image: "/images/products/cabinet.svg",
+    image: "/images/products/nzxt-h7-flow-rgb.jpg",
     tags: ["atx", "rgb"],
   },
   {
@@ -359,7 +359,7 @@ export const products: Product[] = [
       Panels: "Tempered Glass",
       Fans: "Up to 10x 120mm",
     },
-    image: "/images/products/cabinet.svg",
+    image: "/images/products/lian-li-o11-dynamic-evo.jpg",
     tags: ["premium", "showcase"],
   },
   {
@@ -382,7 +382,7 @@ export const products: Product[] = [
       Display: "14\" FHD IPS",
       OS: "Windows 11 Pro",
     },
-    image: "/images/products/laptop.svg",
+    image: "/images/products/lenovo-thinkpad-e14-gen5.jpg",
     tags: ["business", "thinkpad"],
   },
   {
@@ -404,7 +404,7 @@ export const products: Product[] = [
       Storage: "1TB SSD",
       Display: "16\" FHD 165Hz",
     },
-    image: "/images/products/laptop.svg",
+    image: "/images/products/asus-rog-strix-g16.jpg",
     tags: ["gaming", "rog"],
   },
   {
@@ -426,7 +426,7 @@ export const products: Product[] = [
       Connectivity: "LIGHTSPEED Wireless",
       Battery: "Up to 95 hours",
     },
-    image: "/images/products/peripheral.svg",
+    image: "/images/products/logitech-g-pro-x-superlight-2.jpg",
     tags: ["gaming", "wireless"],
   },
   {
@@ -448,7 +448,7 @@ export const products: Product[] = [
       Battery: "Up to 100 hours",
       Material: "Aluminum",
     },
-    image: "/images/products/peripheral.svg",
+    image: "/images/products/keychron-q1-pro.jpg",
     tags: ["mechanical", "wireless"],
   },
   {
@@ -470,7 +470,7 @@ export const products: Product[] = [
       Ports: "4x Gigabit LAN, 1x WAN",
       Coverage: "Up to 2000 sq ft",
     },
-    image: "/images/products/network.svg",
+    image: "/images/products/tp-link-archer-ax73.jpg",
     tags: ["wifi6", "router"],
   },
   {
@@ -493,7 +493,7 @@ export const products: Product[] = [
       Storage: "1TB NVMe SSD",
       PSU: "750W 80+ Gold",
     },
-    image: "/images/products/desktop.svg",
+    image: "/images/products/infotoolz-gaming-pro-pc.jpg",
     tags: ["gaming", "prebuilt"],
   },
   {
@@ -515,7 +515,7 @@ export const products: Product[] = [
       Socket: "LGA 1700",
       TDP: "65W",
     },
-    image: "/images/products/processor.svg",
+    image: "/images/products/intel-core-i5-14400f.jpg",
     tags: ["budget", "intel"],
   },
   {
@@ -537,7 +537,7 @@ export const products: Product[] = [
       Panel: "SS IPS",
       Response: "1ms MPRT",
     },
-    image: "/images/products/monitor.svg",
+    image: "/images/products/gigabyte-aorus-27-240hz.jpg",
     tags: ["esports", "240hz"],
   },
 ];
