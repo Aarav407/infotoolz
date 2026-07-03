@@ -12,7 +12,7 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      <section className="px-4 py-16">
         <SectionHeader
           title="Shop by Category"
           subtitle="Find the right hardware for your needs"
@@ -23,7 +23,7 @@ export default function HomePage() {
       </section>
 
       <section className="bg-white border-y border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 py-16">
+        <div className="px-4 py-16">
           <SectionHeader
             title="Featured Products"
             subtitle="Top picks from our catalog"
@@ -43,7 +43,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      <section className="px-4 py-16">
         <div className="rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-12 text-white text-center border border-[#00AFB9]/20">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Need a Quote or Bulk Order?

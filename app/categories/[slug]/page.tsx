@@ -35,7 +35,7 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
   const categoryProducts = getProductsByCategory(slug);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="px-4 py-8">
       <Link
         href="/categories"
         className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-[#00AFB9] mb-6"

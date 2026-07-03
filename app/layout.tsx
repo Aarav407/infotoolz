@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CategorySidebar } from "@/components/CategorySidebar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { company } from "@/data/company";
 import "./globals.css";
@@ -29,7 +30,10 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-slate-50 font-sans antialiased">
         <Header />
-        <main className="flex-1">{children}</main>
+        <div className="flex flex-1 w-full max-w-[1600px] mx-auto">
+          <CategorySidebar />
+          <main className="flex-1 min-w-0">{children}</main>
+        </div>
         <Footer />
         <WhatsAppButton />
       </body>

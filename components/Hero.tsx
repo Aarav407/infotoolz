@@ -9,7 +9,7 @@ export function Hero() {
         <div className="absolute bottom-10 right-10 h-64 w-64 rounded-full bg-[#00AFB9] blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
+      <div className="relative px-4 py-16 md:py-24">
         <div className="max-w-2xl">
           <span className="inline-block rounded-full bg-[#00AFB9]/20 border border-[#00AFB9]/30 px-4 py-1 text-sm font-medium text-[#00AFB9] mb-6">
             Authorized IT Hardware Reseller

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="px-4 py-8">
       <SectionHeader
         title="Contact Us"
         subtitle="Reach out for product inquiries, quotes, or bulk orders"

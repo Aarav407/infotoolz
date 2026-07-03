@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CategoriesPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="px-4 py-8">
       <SectionHeader
         title="Product Categories"
         subtitle="Explore our full range of IT hardware"

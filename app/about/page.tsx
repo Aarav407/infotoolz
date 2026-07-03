@@ -17,7 +17,7 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="px-4 py-8">
       <SectionHeader
         title={`About ${company.name}`}
         subtitle="Your trusted partner for genuine IT hardware"
