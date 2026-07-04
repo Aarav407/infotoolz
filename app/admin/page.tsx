@@ -14,6 +14,7 @@ export default function AdminUploadPage() {
   const [uploading, setUploading] = useState(false);
   const [results, setResults] = useState<UploadResult[]>([]);
   const [error, setError] = useState("");
+  const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -37,9 +38,10 @@ export default function AdminUploadPage() {
       }
 
       setResults(data.products || []);
+      setSelectedFiles([]);
       form.reset();
     } catch {
-      setError("Upload failed. Please try again.");
+      setError("Upload failed. Please make sure the local dev server is running and try again.");
     } finally {
       setUploading(false);
     }
@@ -74,25 +76,41 @@ export default function AdminUploadPage() {
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-          <div className="rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 p-8 text-center hover:border-[#00AFB9]/50 transition-colors">
+          <label
+            htmlFor="files"
+            className="block cursor-pointer rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 p-8 text-center hover:border-[#00AFB9]/50 transition-colors"
+          >
             <ImageIcon className="h-10 w-10 text-slate-400 mx-auto mb-3" />
-            <label htmlFor="files" className="cursor-pointer">
-              <span className="text-sm font-semibold text-[#00AFB9] hover:underline">
-                Choose photos
-              </span>
-              <span className="text-sm text-slate-500"> or drag and drop</span>
-              <input
-                id="files"
-                name="files"
-                type="file"
-                accept="image/png,image/jpeg,image/jpg,image/webp"
-                multiple
-                required
-                className="hidden"
-              />
-            </label>
-            <p className="mt-2 text-xs text-slate-400">PNG, JPG, WebP — multiple files OK</p>
-          </div>
+            <span className="text-sm font-semibold text-[#00AFB9] hover:underline">
+              Tap or click here to choose photos
+            </span>
+            <input
+              id="files"
+              name="files"
+              type="file"
+              accept="image/png,image/jpeg,image/jpg,image/webp"
+              multiple
+              required
+              className="sr-only"
+              onChange={(event) =>
+                setSelectedFiles(Array.from(event.target.files || []).map((file) => file.name))
+              }
+            />
+            <p className="mt-2 text-xs text-slate-400">PNG, JPG, WebP - multiple files OK</p>
+          </label>
+
+          {selectedFiles.length > 0 && (
+            <div className="rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 text-sm text-slate-700">
+              <p className="font-semibold text-slate-900">
+                {selectedFiles.length} selected photo{selectedFiles.length !== 1 ? "s" : ""}
+              </p>
+              <ul className="mt-2 max-h-28 overflow-y-auto space-y-1 text-xs text-slate-500">
+                {selectedFiles.map((file) => (
+                  <li key={file}>{file}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <button
             type="submit"

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import { importProductFromFile } from "@/lib/import-product";
+
+export const runtime = "nodejs";
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,6 +22,13 @@ export async function POST(request: NextRequest) {
       results.push(result);
     }
 
+    if (!results.length) {
+      return NextResponse.json(
+        { error: "No valid image files were uploaded. Please choose PNG, JPG, or WebP photos." },
+        { status: 400 }
+      );
+    }
+
     return NextResponse.json({
       success: true,
       count: results.length,
@@ -30,7 +37,10 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Upload error:", error);
     return NextResponse.json(
-      { error: "Upload failed. Please try again." },
+      {
+        error:
+          "Upload failed. Please run this from the local dev server; live deployments may not allow saving files.",
+      },
       { status: 500 }
     );
   }
