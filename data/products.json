@@ -1,26 +1,25 @@
 [
   {
-    "id": "p1",
-    "name": "Intel Core i7-14700K Processor",
-    "slug": "intel-core-i7-14700k",
-    "category": "Processors",
-    "categorySlug": "processors",
-    "brand": "Intel",
+    "id": "p4",
+    "name": "AMD Radeon RX 7800 XT 16GB",
+    "slug": "amd-rx-7800-xt",
+    "category": "Graphics Cards",
+    "categorySlug": "graphics-cards",
+    "brand": "AMD",
     "inStock": true,
-    "featured": true,
-    "description": "20-core (8P+12E) desktop processor with Intel UHD Graphics 770. Ideal for gaming and content creation.",
+    "description": "RDNA 3 architecture GPU with 16GB GDDR6. Excellent 1440p gaming performance.",
     "specs": {
-      "Cores": "20 (8P + 12E)",
-      "Base Clock": "3.4 GHz",
-      "Boost Clock": "5.6 GHz",
-      "Socket": "LGA 1700",
-      "TDP": "125W"
+      "Memory": "16GB GDDR6",
+      "Stream Processors": "3840",
+      "Game Clock": "2124 MHz",
+      "Interface": "PCIe 4.0 x16",
+      "TDP": "263W"
     },
-    "image": "/images/products/intel-core-i7-14700k.jpg",
+    "image": "/images/products/amd-rx-7800-xt.jpg",
     "tags": [
       "gaming",
-      "intel",
-      "14th-gen"
+      "amd",
+      "rdna3"
     ]
   },
   {
@@ -49,53 +48,6 @@
     ]
   },
   {
-    "id": "p3",
-    "name": "NVIDIA GeForce RTX 4070 Super 12GB",
-    "slug": "nvidia-rtx-4070-super",
-    "category": "Graphics Cards",
-    "categorySlug": "graphics-cards",
-    "brand": "NVIDIA",
-    "inStock": true,
-    "featured": true,
-    "description": "High-performance GPU with 12GB GDDR6X memory. Ray tracing and DLSS 3 support for next-gen gaming.",
-    "specs": {
-      "Memory": "12GB GDDR6X",
-      "CUDA Cores": "7168",
-      "Boost Clock": "2475 MHz",
-      "Interface": "PCIe 4.0 x16",
-      "TDP": "220W"
-    },
-    "image": "/images/products/nvidia-rtx-4070-super.jpg",
-    "tags": [
-      "gaming",
-      "nvidia",
-      "rtx"
-    ]
-  },
-  {
-    "id": "p4",
-    "name": "AMD Radeon RX 7800 XT 16GB",
-    "slug": "amd-rx-7800-xt",
-    "category": "Graphics Cards",
-    "categorySlug": "graphics-cards",
-    "brand": "AMD",
-    "inStock": true,
-    "description": "RDNA 3 architecture GPU with 16GB GDDR6. Excellent 1440p gaming performance.",
-    "specs": {
-      "Memory": "16GB GDDR6",
-      "Stream Processors": "3840",
-      "Game Clock": "2124 MHz",
-      "Interface": "PCIe 4.0 x16",
-      "TDP": "263W"
-    },
-    "image": "/images/products/amd-rx-7800-xt.jpg",
-    "tags": [
-      "gaming",
-      "amd",
-      "rdna3"
-    ]
-  },
-  {
     "id": "p5",
     "name": "ASUS ROG Strix B650E-F Gaming WiFi",
     "slug": "asus-rog-strix-b650e-f",
@@ -120,25 +72,69 @@
     ]
   },
   {
-    "id": "p6",
-    "name": "MSI MAG B760 Tomahawk WiFi",
-    "slug": "msi-mag-b760-tomahawk",
-    "category": "Motherboards",
-    "categorySlug": "motherboards",
-    "brand": "MSI",
+    "id": "p18",
+    "name": "ASUS ROG Strix G16 Gaming Laptop",
+    "slug": "asus-rog-strix-g16",
+    "category": "Laptops",
+    "categorySlug": "laptops",
+    "brand": "ASUS",
     "inStock": true,
-    "description": "Intel B760 ATX motherboard with DDR5 support, WiFi 6E, and 2.5G LAN.",
+    "description": "Gaming laptop with RTX 4060, Intel i7, and 165Hz display for immersive gaming.",
     "specs": {
-      "Socket": "LGA 1700",
-      "Chipset": "Intel B760",
-      "Form Factor": "ATX",
-      "Memory": "DDR5, 4 slots, up to 192GB",
-      "PCIe Slots": "1x PCIe 5.0 x16"
+      "Processor": "Intel Core i7-13650HX",
+      "GPU": "NVIDIA RTX 4060 8GB",
+      "RAM": "16GB DDR5",
+      "Storage": "1TB SSD",
+      "Display": "16\" FHD 165Hz"
     },
-    "image": "/images/products/msi-mag-b760-tomahawk.jpg",
+    "image": "/images/products/asus-rog-strix-g16.jpg",
     "tags": [
-      "intel",
-      "msi"
+      "gaming",
+      "rog"
+    ]
+  },
+  {
+    "id": "p14",
+    "name": "Cooler Master MWE Gold 750W V2",
+    "slug": "cooler-master-mwe-750w",
+    "category": "Power Supply",
+    "categorySlug": "power-supply",
+    "brand": "Cooler Master",
+    "inStock": true,
+    "description": "Reliable 750W PSU with 80+ Gold certification for mid-range gaming builds.",
+    "specs": {
+      "Wattage": "750W",
+      "Efficiency": "80+ Gold",
+      "Modular": "Semi-Modular",
+      "Fan": "120mm HDB",
+      "Warranty": "5 Years"
+    },
+    "image": "/images/products/cooler-master-mwe-750w.jpg",
+    "tags": [
+      "budget",
+      "gold"
+    ]
+  },
+  {
+    "id": "p13",
+    "name": "Corsair RM850x 850W 80+ Gold Modular",
+    "slug": "corsair-rm850x-850w",
+    "category": "Power Supply",
+    "categorySlug": "power-supply",
+    "brand": "Corsair",
+    "inStock": true,
+    "description": "Fully modular 850W power supply with 80+ Gold efficiency and quiet operation.",
+    "specs": {
+      "Wattage": "850W",
+      "Efficiency": "80+ Gold",
+      "Modular": "Fully Modular",
+      "Fan": "135mm Rifle Bearing",
+      "Warranty": "10 Years"
+    },
+    "image": "/images/products/corsair-rm850x-850w.jpg",
+    "tags": [
+      "modular",
+      "gold"
     ]
   },
   {
@@ -165,6 +161,28 @@
     ]
   },
   {
+    "id": "p12",
+    "name": "Dell P2723QE 27\" 4K USB-C Monitor",
+    "slug": "dell-p2723qe-27-4k",
+    "category": "Monitors",
+    "categorySlug": "monitors",
+    "brand": "Dell",
+    "inStock": true,
+    "description": "Professional 4K IPS monitor with USB-C hub, 99% sRGB coverage for creative work.",
+    "specs": {
+      "Size": "27 inch",
+      "Resolution": "3840 x 2160 (4K)",
+      "Refresh Rate": "60Hz",
+      "Panel": "IPS",
+      "Connectivity": "USB-C, HDMI, DP"
+    },
+    "image": "/images/products/dell-p2723qe-27-4k.jpg",
+    "tags": [
+      "4k",
+      "professional"
+    ]
+  },
+  {
     "id": "p8",
     "name": "G.Skill Trident Z5 RGB 64GB (2x32GB) 6400MHz",
     "slug": "gskill-trident-z5-64gb",
@@ -183,6 +201,439 @@
     "image": "/images/products/gskill-trident-z5-64gb.jpg",
     "tags": [
       "ddr5",
+      "rgb"
+    ]
+  },
+  {
+    "id": "p24",
+    "name": "Gigabyte AORUS 27\" QHD 240Hz Monitor",
+    "slug": "gigabyte-aorus-27-240hz",
+    "category": "Monitors",
+    "categorySlug": "monitors",
+    "brand": "Gigabyte",
+    "inStock": false,
+    "description": "Competitive gaming monitor with 240Hz refresh rate and HDR400 support.",
+    "specs": {
+      "Size": "27 inch",
+      "Resolution": "2560 x 1440 (QHD)",
+      "Refresh Rate": "240Hz",
+      "Panel": "SS IPS",
+      "Response": "1ms MPRT"
+    },
+    "image": "/images/products/gigabyte-aorus-27-240hz.jpg",
+    "tags": [
+      "esports",
+      "240hz"
+    ]
+  },
+  {
+    "id": "p22",
+    "name": "Infotoolz Gaming Pro PC (RTX 4070, i7)",
+    "slug": "infotoolz-gaming-pro-pc",
+    "category": "Pre-built PCs",
+    "categorySlug": "prebuilt-pcs",
+    "brand": "Infotoolz",
+    "inStock": true,
+    "featured": true,
+    "description": "Custom-built gaming PC with Intel i7-14700K, RTX 4070, 32GB DDR5, and 1TB NVMe SSD.",
+    "specs": {
+      "CPU": "Intel Core i7-14700K",
+      "GPU": "NVIDIA RTX 4070 12GB",
+      "RAM": "32GB DDR5 6000MHz",
+      "Storage": "1TB NVMe SSD",
+      "PSU": "750W 80+ Gold"
+    },
+    "image": "/images/products/infotoolz-gaming-pro-pc.jpg",
+    "tags": [
+      "gaming",
+      "prebuilt"
+    ]
+  },
+  {
+    "id": "p31",
+    "name": "Intel Core i3 10th Gen Processor",
+    "slug": "intel-core-i3-10th-gen",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "featured": false,
+    "description": "10th Generation Intel Core i3 desktop processor. Discrete graphics required — pair with a dedicated GPU. Genuine Intel retail box.",
+    "specs": {
+      "Generation": "10th Gen (Comet Lake)",
+      "Socket": "LGA 1200",
+      "Graphics": "Discrete GPU required",
+      "Segment": "Desktop"
+    },
+    "image": "/images/products/intel-core-i3-10th-gen.png",
+    "tags": [
+      "intel",
+      "processors",
+      "10th"
+    ]
+  },
+  {
+    "id": "p29",
+    "name": "Intel Core i3 12th Gen Processor",
+    "slug": "intel-core-i3-12th-gen",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "featured": false,
+    "description": "12th Generation Intel Core i3 desktop processor. Discrete graphics required — pair with a dedicated GPU. Genuine Intel retail box.",
+    "specs": {
+      "Generation": "12th Gen (Alder Lake)",
+      "Socket": "LGA 1700",
+      "Graphics": "Discrete GPU required",
+      "Segment": "Desktop"
+    },
+    "image": "/images/products/intel-core-i3-12th-gen.png",
+    "tags": [
+      "intel",
+      "processors",
+      "12th"
+    ]
+  },
+  {
+    "id": "p30",
+    "name": "Intel Core i5 10th Gen Processor",
+    "slug": "intel-core-i5-10th-gen",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "featured": false,
+    "description": "10th Generation Intel Core i5 desktop processor. Discrete graphics required — use with a dedicated GPU. Genuine Intel retail box.",
+    "specs": {
+      "Generation": "10th Gen (Comet Lake)",
+      "Socket": "LGA 1200",
+      "Graphics": "Discrete GPU required",
+      "Segment": "Desktop"
+    },
+    "image": "/images/products/intel-core-i5-10th-gen.png",
+    "tags": [
+      "intel",
+      "processors",
+      "10th"
+    ]
+  },
+  {
+    "id": "p25",
+    "name": "Intel Core i5 12th Gen Processor",
+    "slug": "intel-core-i5-12th-gen",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "featured": true,
+    "description": "12th Generation Intel Core i5 desktop processor. Discrete graphics required — use with a dedicated GPU. Genuine Intel retail box.",
+    "specs": {
+      "Generation": "12th Gen (Alder Lake)",
+      "Socket": "LGA 1700",
+      "Graphics": "Discrete GPU required",
+      "Segment": "Desktop"
+    },
+    "image": "/images/products/intel-core-i5-12th-gen.png",
+    "tags": [
+      "intel",
+      "processors",
+      "12th"
+    ]
+  },
+  {
+    "id": "p23",
+    "name": "Intel Core i5-14400F Processor",
+    "slug": "intel-core-i5-14400f",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "description": "10-core budget-friendly CPU without integrated graphics. Great value for gaming builds.",
+    "specs": {
+      "Cores": "10 (6P + 4E)",
+      "Base Clock": "2.5 GHz",
+      "Boost Clock": "4.7 GHz",
+      "Socket": "LGA 1700",
+      "TDP": "65W"
+    },
+    "image": "/images/products/intel-core-i5-14400f.jpg",
+    "tags": [
+      "budget",
+      "intel"
+    ]
+  },
+  {
+    "id": "p28",
+    "name": "Intel Core i7 12th Gen Processor",
+    "slug": "intel-core-i7-12th-gen",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "featured": false,
+    "description": "12th Generation Intel Core i7 desktop processor. Discrete graphics required — pair with a dedicated GPU. Genuine Intel retail box.",
+    "specs": {
+      "Generation": "12th Gen (Alder Lake)",
+      "Socket": "LGA 1700",
+      "Graphics": "Discrete GPU required",
+      "Segment": "Desktop"
+    },
+    "image": "/images/products/intel-core-i7-12th-gen.png",
+    "tags": [
+      "intel",
+      "processors",
+      "12th"
+    ]
+  },
+  {
+    "id": "p27",
+    "name": "Intel Core i7 12th Gen Unlocked Processor",
+    "slug": "intel-core-i7-12th-gen-unlocked",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "featured": true,
+    "description": "12th Generation Intel Core i7 unlocked desktop processor. Overclocking-ready for gaming and content creation. Genuine Intel retail box.",
+    "specs": {
+      "Generation": "12th Gen (Alder Lake)",
+      "Socket": "LGA 1700",
+      "Type": "Unlocked",
+      "Segment": "Desktop"
+    },
+    "image": "/images/products/intel-core-i7-12th-gen-unlocked.png",
+    "tags": [
+      "intel",
+      "processors",
+      "12th"
+    ]
+  },
+  {
+    "id": "p1",
+    "name": "Intel Core i7-14700K Processor",
+    "slug": "intel-core-i7-14700k",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "featured": true,
+    "description": "20-core (8P+12E) desktop processor with Intel UHD Graphics 770. Ideal for gaming and content creation.",
+    "specs": {
+      "Cores": "20 (8P + 12E)",
+      "Base Clock": "3.4 GHz",
+      "Boost Clock": "5.6 GHz",
+      "Socket": "LGA 1700",
+      "TDP": "125W"
+    },
+    "image": "/images/products/intel-core-i7-14700k.jpg",
+    "tags": [
+      "gaming",
+      "intel",
+      "14th-gen"
+    ]
+  },
+  {
+    "id": "p26",
+    "name": "Intel Core i9 14th Gen Unlocked Processor",
+    "slug": "intel-core-i9-14th-gen-unlocked",
+    "category": "Processors",
+    "categorySlug": "processors",
+    "brand": "Intel",
+    "inStock": true,
+    "featured": true,
+    "description": "14th Generation Intel Core i9 unlocked desktop processor. Premium performance for gaming and workstation builds. Genuine Intel retail box.",
+    "specs": {
+      "Generation": "14th Gen (Raptor Lake Refresh)",
+      "Socket": "LGA 1700",
+      "Type": "Unlocked",
+      "Segment": "Desktop"
+    },
+    "image": "/images/products/intel-core-i9-14th-gen-unlocked.png",
+    "tags": [
+      "intel",
+      "processors",
+      "14th"
+    ]
+  },
+  {
+    "id": "p20",
+    "name": "Keychron Q1 Pro Mechanical Keyboard",
+    "slug": "keychron-q1-pro",
+    "category": "Peripherals",
+    "categorySlug": "peripherals",
+    "brand": "Keychron",
+    "inStock": true,
+    "description": "Premium aluminum mechanical keyboard with hot-swappable switches and wireless connectivity.",
+    "specs": {
+      "Layout": "75%",
+      "Switches": "Gateron Pro (Hot-swappable)",
+      "Connectivity": "Bluetooth, 2.4GHz, USB-C",
+      "Battery": "Up to 100 hours",
+      "Material": "Aluminum"
+    },
+    "image": "/images/products/keychron-q1-pro.jpg",
+    "tags": [
+      "mechanical",
+      "wireless"
+    ]
+  },
+  {
+    "id": "p17",
+    "name": "Lenovo ThinkPad E14 Gen 5 (i5, 16GB, 512GB)",
+    "slug": "lenovo-thinkpad-e14-gen5",
+    "category": "Laptops",
+    "categorySlug": "laptops",
+    "brand": "Lenovo",
+    "inStock": true,
+    "featured": true,
+    "description": "Business laptop with Intel Core i5, 16GB RAM, and 512GB SSD. MIL-STD tested durability.",
+    "specs": {
+      "Processor": "Intel Core i5-1335U",
+      "RAM": "16GB DDR4",
+      "Storage": "512GB SSD",
+      "Display": "14\" FHD IPS",
+      "OS": "Windows 11 Pro"
+    },
+    "image": "/images/products/lenovo-thinkpad-e14-gen5.jpg",
+    "tags": [
+      "business",
+      "thinkpad"
+    ]
+  },
+  {
+    "id": "p11",
+    "name": "LG UltraGear 27GP850-B 27\" QHD 165Hz",
+    "slug": "lg-ultragear-27gp850",
+    "category": "Monitors",
+    "categorySlug": "monitors",
+    "brand": "LG",
+    "inStock": true,
+    "featured": true,
+    "description": "27-inch Nano IPS gaming monitor with 165Hz refresh rate and 1ms response time.",
+    "specs": {
+      "Size": "27 inch",
+      "Resolution": "2560 x 1440 (QHD)",
+      "Refresh Rate": "165Hz",
+      "Panel": "Nano IPS",
+      "Response": "1ms GtG"
+    },
+    "image": "/images/products/lg-ultragear-27gp850.jpg",
+    "tags": [
+      "gaming",
+      "1440p"
+    ]
+  },
+  {
+    "id": "p16",
+    "name": "Lian Li O11 Dynamic EVO",
+    "slug": "lian-li-o11-dynamic-evo",
+    "category": "Cabinets",
+    "categorySlug": "cabinets",
+    "brand": "Lian Li",
+    "inStock": true,
+    "description": "Premium dual-chamber case popular for custom water cooling and showcase builds.",
+    "specs": {
+      "Form Factor": "Mid-Tower ATX",
+      "Motherboard Support": "ATX, mATX, ITX",
+      "Max GPU Length": "420mm",
+      "Panels": "Tempered Glass",
+      "Fans": "Up to 10x 120mm"
+    },
+    "image": "/images/products/lian-li-o11-dynamic-evo.jpg",
+    "tags": [
+      "premium",
+      "showcase"
+    ]
+  },
+  {
+    "id": "p19",
+    "name": "Logitech G Pro X Superlight 2",
+    "slug": "logitech-g-pro-x-superlight-2",
+    "category": "Peripherals",
+    "categorySlug": "peripherals",
+    "brand": "Logitech",
+    "inStock": true,
+    "description": "Ultra-lightweight wireless gaming mouse with HERO 2 sensor and 95-hour battery.",
+    "specs": {
+      "Sensor": "HERO 2",
+      "DPI": "Up to 32,000",
+      "Weight": "60g",
+      "Connectivity": "LIGHTSPEED Wireless",
+      "Battery": "Up to 95 hours"
+    },
+    "image": "/images/products/logitech-g-pro-x-superlight-2.jpg",
+    "tags": [
+      "gaming",
+      "wireless"
+    ]
+  },
+  {
+    "id": "p6",
+    "name": "MSI MAG B760 Tomahawk WiFi",
+    "slug": "msi-mag-b760-tomahawk",
+    "category": "Motherboards",
+    "categorySlug": "motherboards",
+    "brand": "MSI",
+    "inStock": true,
+    "description": "Intel B760 ATX motherboard with DDR5 support, WiFi 6E, and 2.5G LAN.",
+    "specs": {
+      "Socket": "LGA 1700",
+      "Chipset": "Intel B760",
+      "Form Factor": "ATX",
+      "Memory": "DDR5, 4 slots, up to 192GB",
+      "PCIe Slots": "1x PCIe 5.0 x16"
+    },
+    "image": "/images/products/msi-mag-b760-tomahawk.jpg",
+    "tags": [
+      "intel",
+      "msi"
+    ]
+  },
+  {
+    "id": "p3",
+    "name": "NVIDIA GeForce RTX 4070 Super 12GB",
+    "slug": "nvidia-rtx-4070-super",
+    "category": "Graphics Cards",
+    "categorySlug": "graphics-cards",
+    "brand": "NVIDIA",
+    "inStock": true,
+    "featured": true,
+    "description": "High-performance GPU with 12GB GDDR6X memory. Ray tracing and DLSS 3 support for next-gen gaming.",
+    "specs": {
+      "Memory": "12GB GDDR6X",
+      "CUDA Cores": "7168",
+      "Boost Clock": "2475 MHz",
+      "Interface": "PCIe 4.0 x16",
+      "TDP": "220W"
+    },
+    "image": "/images/products/nvidia-rtx-4070-super.jpg",
+    "tags": [
+      "gaming",
+      "nvidia",
+      "rtx"
+    ]
+  },
+  {
+    "id": "p15",
+    "name": "NZXT H7 Flow RGB Mid-Tower Case",
+    "slug": "nzxt-h7-flow-rgb",
+    "category": "Cabinets",
+    "categorySlug": "cabinets",
+    "brand": "NZXT",
+    "inStock": true,
+    "featured": true,
+    "description": "High-airflow mid-tower case with tempered glass and included RGB fans.",
+    "specs": {
+      "Form Factor": "Mid-Tower ATX",
+      "Motherboard Support": "ATX, mATX, ITX",
+      "Max GPU Length": "400mm",
+      "Drive Bays": "2x 3.5\", 2x 2.5\"",
+      "Fans": "3x 120mm RGB included"
+    },
+    "image": "/images/products/nzxt-h7-flow-rgb.jpg",
+    "tags": [
+      "atx",
       "rgb"
     ]
   },
@@ -210,251 +661,6 @@
     ]
   },
   {
-    "id": "p10",
-    "name": "WD Black SN850X 1TB NVMe SSD",
-    "slug": "wd-black-sn850x-1tb",
-    "category": "Storage",
-    "categorySlug": "storage",
-    "brand": "Western Digital",
-    "inStock": true,
-    "description": "High-performance gaming SSD with heatsink option for sustained performance.",
-    "specs": {
-      "Capacity": "1TB",
-      "Interface": "PCIe 4.0 x4 NVMe",
-      "Read Speed": "7,300 MB/s",
-      "Write Speed": "6,300 MB/s",
-      "Form": "M.2 2280"
-    },
-    "image": "/images/products/wd-black-sn850x-1tb.jpg",
-    "tags": [
-      "nvme",
-      "gaming"
-    ]
-  },
-  {
-    "id": "p11",
-    "name": "LG UltraGear 27GP850-B 27\" QHD 165Hz",
-    "slug": "lg-ultragear-27gp850",
-    "category": "Monitors",
-    "categorySlug": "monitors",
-    "brand": "LG",
-    "inStock": true,
-    "featured": true,
-    "description": "27-inch Nano IPS gaming monitor with 165Hz refresh rate and 1ms response time.",
-    "specs": {
-      "Size": "27 inch",
-      "Resolution": "2560 x 1440 (QHD)",
-      "Refresh Rate": "165Hz",
-      "Panel": "Nano IPS",
-      "Response": "1ms GtG"
-    },
-    "image": "/images/products/lg-ultragear-27gp850.jpg",
-    "tags": [
-      "gaming",
-      "1440p"
-    ]
-  },
-  {
-    "id": "p12",
-    "name": "Dell P2723QE 27\" 4K USB-C Monitor",
-    "slug": "dell-p2723qe-27-4k",
-    "category": "Monitors",
-    "categorySlug": "monitors",
-    "brand": "Dell",
-    "inStock": true,
-    "description": "Professional 4K IPS monitor with USB-C hub, 99% sRGB coverage for creative work.",
-    "specs": {
-      "Size": "27 inch",
-      "Resolution": "3840 x 2160 (4K)",
-      "Refresh Rate": "60Hz",
-      "Panel": "IPS",
-      "Connectivity": "USB-C, HDMI, DP"
-    },
-    "image": "/images/products/dell-p2723qe-27-4k.jpg",
-    "tags": [
-      "4k",
-      "professional"
-    ]
-  },
-  {
-    "id": "p13",
-    "name": "Corsair RM850x 850W 80+ Gold Modular",
-    "slug": "corsair-rm850x-850w",
-    "category": "Power Supply",
-    "categorySlug": "power-supply",
-    "brand": "Corsair",
-    "inStock": true,
-    "description": "Fully modular 850W power supply with 80+ Gold efficiency and quiet operation.",
-    "specs": {
-      "Wattage": "850W",
-      "Efficiency": "80+ Gold",
-      "Modular": "Fully Modular",
-      "Fan": "135mm Rifle Bearing",
-      "Warranty": "10 Years"
-    },
-    "image": "/images/products/corsair-rm850x-850w.jpg",
-    "tags": [
-      "modular",
-      "gold"
-    ]
-  },
-  {
-    "id": "p14",
-    "name": "Cooler Master MWE Gold 750W V2",
-    "slug": "cooler-master-mwe-750w",
-    "category": "Power Supply",
-    "categorySlug": "power-supply",
-    "brand": "Cooler Master",
-    "inStock": true,
-    "description": "Reliable 750W PSU with 80+ Gold certification for mid-range gaming builds.",
-    "specs": {
-      "Wattage": "750W",
-      "Efficiency": "80+ Gold",
-      "Modular": "Semi-Modular",
-      "Fan": "120mm HDB",
-      "Warranty": "5 Years"
-    },
-    "image": "/images/products/cooler-master-mwe-750w.jpg",
-    "tags": [
-      "budget",
-      "gold"
-    ]
-  },
-  {
-    "id": "p15",
-    "name": "NZXT H7 Flow RGB Mid-Tower Case",
-    "slug": "nzxt-h7-flow-rgb",
-    "category": "Cabinets",
-    "categorySlug": "cabinets",
-    "brand": "NZXT",
-    "inStock": true,
-    "featured": true,
-    "description": "High-airflow mid-tower case with tempered glass and included RGB fans.",
-    "specs": {
-      "Form Factor": "Mid-Tower ATX",
-      "Motherboard Support": "ATX, mATX, ITX",
-      "Max GPU Length": "400mm",
-      "Drive Bays": "2x 3.5\", 2x 2.5\"",
-      "Fans": "3x 120mm RGB included"
-    },
-    "image": "/images/products/nzxt-h7-flow-rgb.jpg",
-    "tags": [
-      "atx",
-      "rgb"
-    ]
-  },
-  {
-    "id": "p16",
-    "name": "Lian Li O11 Dynamic EVO",
-    "slug": "lian-li-o11-dynamic-evo",
-    "category": "Cabinets",
-    "categorySlug": "cabinets",
-    "brand": "Lian Li",
-    "inStock": true,
-    "description": "Premium dual-chamber case popular for custom water cooling and showcase builds.",
-    "specs": {
-      "Form Factor": "Mid-Tower ATX",
-      "Motherboard Support": "ATX, mATX, ITX",
-      "Max GPU Length": "420mm",
-      "Panels": "Tempered Glass",
-      "Fans": "Up to 10x 120mm"
-    },
-    "image": "/images/products/lian-li-o11-dynamic-evo.jpg",
-    "tags": [
-      "premium",
-      "showcase"
-    ]
-  },
-  {
-    "id": "p17",
-    "name": "Lenovo ThinkPad E14 Gen 5 (i5, 16GB, 512GB)",
-    "slug": "lenovo-thinkpad-e14-gen5",
-    "category": "Laptops",
-    "categorySlug": "laptops",
-    "brand": "Lenovo",
-    "inStock": true,
-    "featured": true,
-    "description": "Business laptop with Intel Core i5, 16GB RAM, and 512GB SSD. MIL-STD tested durability.",
-    "specs": {
-      "Processor": "Intel Core i5-1335U",
-      "RAM": "16GB DDR4",
-      "Storage": "512GB SSD",
-      "Display": "14\" FHD IPS",
-      "OS": "Windows 11 Pro"
-    },
-    "image": "/images/products/lenovo-thinkpad-e14-gen5.jpg",
-    "tags": [
-      "business",
-      "thinkpad"
-    ]
-  },
-  {
-    "id": "p18",
-    "name": "ASUS ROG Strix G16 Gaming Laptop",
-    "slug": "asus-rog-strix-g16",
-    "category": "Laptops",
-    "categorySlug": "laptops",
-    "brand": "ASUS",
-    "inStock": true,
-    "description": "Gaming laptop with RTX 4060, Intel i7, and 165Hz display for immersive gaming.",
-    "specs": {
-      "Processor": "Intel Core i7-13650HX",
-      "GPU": "NVIDIA RTX 4060 8GB",
-      "RAM": "16GB DDR5",
-      "Storage": "1TB SSD",
-      "Display": "16\" FHD 165Hz"
-    },
-    "image": "/images/products/asus-rog-strix-g16.jpg",
-    "tags": [
-      "gaming",
-      "rog"
-    ]
-  },
-  {
-    "id": "p19",
-    "name": "Logitech G Pro X Superlight 2",
-    "slug": "logitech-g-pro-x-superlight-2",
-    "category": "Peripherals",
-    "categorySlug": "peripherals",
-    "brand": "Logitech",
-    "inStock": true,
-    "description": "Ultra-lightweight wireless gaming mouse with HERO 2 sensor and 95-hour battery.",
-    "specs": {
-      "Sensor": "HERO 2",
-      "DPI": "Up to 32,000",
-      "Weight": "60g",
-      "Connectivity": "LIGHTSPEED Wireless",
-      "Battery": "Up to 95 hours"
-    },
-    "image": "/images/products/logitech-g-pro-x-superlight-2.jpg",
-    "tags": [
-      "gaming",
-      "wireless"
-    ]
-  },
-  {
-    "id": "p20",
-    "name": "Keychron Q1 Pro Mechanical Keyboard",
-    "slug": "keychron-q1-pro",
-    "category": "Peripherals",
-    "categorySlug": "peripherals",
-    "brand": "Keychron",
-    "inStock": true,
-    "description": "Premium aluminum mechanical keyboard with hot-swappable switches and wireless connectivity.",
-    "specs": {
-      "Layout": "75%",
-      "Switches": "Gateron Pro (Hot-swappable)",
-      "Connectivity": "Bluetooth, 2.4GHz, USB-C",
-      "Battery": "Up to 100 hours",
-      "Material": "Aluminum"
-    },
-    "image": "/images/products/keychron-q1-pro.jpg",
-    "tags": [
-      "mechanical",
-      "wireless"
-    ]
-  },
-  {
     "id": "p21",
     "name": "TP-Link Archer AX73 WiFi 6 Router",
     "slug": "tp-link-archer-ax73",
@@ -477,93 +683,25 @@
     ]
   },
   {
-    "id": "p22",
-    "name": "Infotoolz Gaming Pro PC (RTX 4070, i7)",
-    "slug": "infotoolz-gaming-pro-pc",
-    "category": "Pre-built PCs",
-    "categorySlug": "prebuilt-pcs",
-    "brand": "Infotoolz",
+    "id": "p10",
+    "name": "WD Black SN850X 1TB NVMe SSD",
+    "slug": "wd-black-sn850x-1tb",
+    "category": "Storage",
+    "categorySlug": "storage",
+    "brand": "Western Digital",
     "inStock": true,
-    "featured": true,
-    "description": "Custom-built gaming PC with Intel i7-14700K, RTX 4070, 32GB DDR5, and 1TB NVMe SSD.",
+    "description": "High-performance gaming SSD with heatsink option for sustained performance.",
     "specs": {
-      "CPU": "Intel Core i7-14700K",
-      "GPU": "NVIDIA RTX 4070 12GB",
-      "RAM": "32GB DDR5 6000MHz",
-      "Storage": "1TB NVMe SSD",
-      "PSU": "750W 80+ Gold"
+      "Capacity": "1TB",
+      "Interface": "PCIe 4.0 x4 NVMe",
+      "Read Speed": "7,300 MB/s",
+      "Write Speed": "6,300 MB/s",
+      "Form": "M.2 2280"
     },
-    "image": "/images/products/infotoolz-gaming-pro-pc.jpg",
+    "image": "/images/products/wd-black-sn850x-1tb.jpg",
     "tags": [
-      "gaming",
-      "prebuilt"
-    ]
-  },
-  {
-    "id": "p23",
-    "name": "Intel Core i5-14400F Processor",
-    "slug": "intel-core-i5-14400f",
-    "category": "Processors",
-    "categorySlug": "processors",
-    "brand": "Intel",
-    "inStock": true,
-    "description": "10-core budget-friendly CPU without integrated graphics. Great value for gaming builds.",
-    "specs": {
-      "Cores": "10 (6P + 4E)",
-      "Base Clock": "2.5 GHz",
-      "Boost Clock": "4.7 GHz",
-      "Socket": "LGA 1700",
-      "TDP": "65W"
-    },
-    "image": "/images/products/intel-core-i5-14400f.jpg",
-    "tags": [
-      "budget",
-      "intel"
-    ]
-  },
-  {
-    "id": "p24",
-    "name": "Gigabyte AORUS 27\" QHD 240Hz Monitor",
-    "slug": "gigabyte-aorus-27-240hz",
-    "category": "Monitors",
-    "categorySlug": "monitors",
-    "brand": "Gigabyte",
-    "inStock": false,
-    "description": "Competitive gaming monitor with 240Hz refresh rate and HDR400 support.",
-    "specs": {
-      "Size": "27 inch",
-      "Resolution": "2560 x 1440 (QHD)",
-      "Refresh Rate": "240Hz",
-      "Panel": "SS IPS",
-      "Response": "1ms MPRT"
-    },
-    "image": "/images/products/gigabyte-aorus-27-240hz.jpg",
-    "tags": [
-      "esports",
-      "240hz"
-    ]
-  },
-  {
-    "id": "p25",
-    "name": "Intel Core i5 12th Gen Processor",
-    "slug": "intel-core-i5-12th-gen",
-    "category": "Processors",
-    "categorySlug": "processors",
-    "brand": "Intel",
-    "inStock": true,
-    "featured": true,
-    "description": "12th Generation Intel Core i5 desktop processor. Discrete graphics required — use with a dedicated GPU for display output. Genuine Intel retail box.",
-    "specs": {
-      "Generation": "12th Gen (Alder Lake)",
-      "Socket": "LGA 1700",
-      "Graphics": "Discrete GPU required",
-      "Segment": "Desktop"
-    },
-    "image": "/images/products/intel-core-i5-12th-gen.png",
-    "tags": [
-      "intel",
-      "processors",
-      "12th-gen"
+      "nvme",
+      "gaming"
     ]
   }
 ]
