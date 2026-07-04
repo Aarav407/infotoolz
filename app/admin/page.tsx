@@ -67,9 +67,10 @@ export default function AdminUploadPage() {
         </div>
 
         <p className="mt-4 text-slate-600 text-sm leading-relaxed">
-          Upload your real product photos here. Name each file after the product
-          (e.g. <strong>Intel Core i5 12th Gen.png</strong>). Category and description
-          are filled in automatically. No pricing needed.
+          Upload your product photos here — any filename is fine (e.g.{" "}
+          <strong>IMG_001.png</strong>). Products are added as{" "}
+          <strong>Product 1</strong>, <strong>Product 2</strong>, etc. You can rename
+          them later. No pricing needed.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
@@ -110,7 +111,7 @@ export default function AdminUploadPage() {
           <div className="mt-6 rounded-xl bg-green-50 border border-green-200 p-4">
             <div className="flex items-center gap-2 text-green-700 font-semibold mb-3">
               <CheckCircle className="h-5 w-5" />
-              {results.length} product{results.length !== 1 ? "s" : ""} added with your real photos!
+              {results.length} photo{results.length !== 1 ? "s" : ""} added to the catalog!
             </div>
             <ul className="space-y-2 text-sm text-green-800">
               {results.map((r) => (

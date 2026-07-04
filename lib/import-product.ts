@@ -44,6 +44,45 @@ export function titleCaseFromFilename(filename: string): string {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+/** Camera roll / phone defaults — user can rename products later in the catalog. */
+export function isGenericFilename(filename: string): boolean {
+  const base = filename.replace(/\.(png|jpg|jpeg|webp)$/i, "").trim();
+  if (!base) return true;
+
+  const genericPatterns = [
+    /^img[_\s-]?\d*$/i,
+    /^dsc[_\s-]?\d*$/i,
+    /^photo[_\s-]?\d*$/i,
+    /^image[_\s-]?\d*$/i,
+    /^picture[_\s-]?\d*$/i,
+    /^snap[_\s-]?\d*$/i,
+    /^pxl_/i,
+    /^whatsapp[\s_-]?image/i,
+    /^screenshot/i,
+    /^untitled/i,
+    /^unnamed/i,
+    /^camera[_\s-]?\d*$/i,
+    /^mvimg/i,
+    /^\d{1,6}$/,
+  ];
+
+  return genericPatterns.some((pattern) => pattern.test(base));
+}
+
+function nextAutoProductNumber(existing: Product[]): number {
+  let max = 0;
+
+  for (const product of existing) {
+    const nameMatch = product.name.match(/^Product (\d+)$/i);
+    if (nameMatch) max = Math.max(max, parseInt(nameMatch[1], 10));
+
+    const slugMatch = product.slug.match(/^product-(\d+)$/);
+    if (slugMatch) max = Math.max(max, parseInt(slugMatch[1], 10));
+  }
+
+  return max + 1;
+}
+
 function detectBrand(name: string): string {
   const lower = name.toLowerCase();
   for (const brand of BRANDS) {
@@ -78,9 +117,15 @@ function saveProducts(products: unknown[]) {
 export function importProductFromFile(filename: string, buffer: Buffer) {
   fs.mkdirSync(PRODUCTS_DIR, { recursive: true });
 
-  const slug = slugify(filename);
+  const existing = loadProducts() as Product[];
   const ext = path.extname(filename).toLowerCase() || ".png";
-  const name = titleCaseFromFilename(filename);
+  const generic = isGenericFilename(filename);
+
+  const slug = generic
+    ? `product-${String(nextAutoProductNumber(existing)).padStart(3, "0")}`
+    : slugify(filename);
+  const name = generic ? `Product ${parseInt(slug.replace(/\D/g, ""), 10)}` : titleCaseFromFilename(filename);
+
   const brand = detectBrand(name);
   const category = detectCategory(name);
   const imagePath = `/images/products/${slug}${ext}`;
@@ -88,9 +133,8 @@ export function importProductFromFile(filename: string, buffer: Buffer) {
 
   fs.writeFileSync(destPath, buffer);
 
-  const existing = loadProducts() as Product[];
   const bySlug = new Map<string, Product>(existing.map((p) => [p.slug, p]));
-  const prev = bySlug.get(slug);
+  const prev = generic ? undefined : bySlug.get(slug);
 
   const idNums = existing
     .map((p) => parseInt(p.id.replace(/\D/g, ""), 10))

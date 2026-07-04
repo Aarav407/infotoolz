@@ -59,6 +59,44 @@ function titleCaseFromFilename(filename) {
     .replace(/\b(I3|I5|I7|I9|Rx|Rtx|Gtx|Ddrr?4|Ddrr?5|Gb|Tb|Hz|Wifi|Wi-Fi|Usb|Hdmi|Atx|Itx|Ssd|Hdd|Psu|Pc)\b/gi, (m) => m.toUpperCase());
 }
 
+function isGenericFilename(filename) {
+  const base = filename.replace(/\.(png|jpg|jpeg|webp)$/i, "").trim();
+  if (!base) return true;
+
+  const genericPatterns = [
+    /^img[_\s-]?\d*$/i,
+    /^dsc[_\s-]?\d*$/i,
+    /^photo[_\s-]?\d*$/i,
+    /^image[_\s-]?\d*$/i,
+    /^picture[_\s-]?\d*$/i,
+    /^snap[_\s-]?\d*$/i,
+    /^pxl_/i,
+    /^whatsapp[\s_-]?image/i,
+    /^screenshot/i,
+    /^untitled/i,
+    /^unnamed/i,
+    /^camera[_\s-]?\d*$/i,
+    /^mvimg/i,
+    /^\d{1,6}$/,
+  ];
+
+  return genericPatterns.some((pattern) => pattern.test(base));
+}
+
+function nextAutoProductNumber(existing) {
+  let max = 0;
+
+  for (const product of existing) {
+    const nameMatch = product.name.match(/^Product (\d+)$/i);
+    if (nameMatch) max = Math.max(max, parseInt(nameMatch[1], 10));
+
+    const slugMatch = product.slug.match(/^product-(\d+)$/);
+    if (slugMatch) max = Math.max(max, parseInt(slugMatch[1], 10));
+  }
+
+  return max + 1;
+}
+
 function detectBrand(name) {
   const lower = name.toLowerCase();
   for (const brand of BRANDS) {
@@ -104,7 +142,7 @@ async function main() {
 
   if (files.length === 0) {
     console.log("No photos found in public/images/uploads/");
-    console.log("Drop PNG/JPG files there named after each product, then run again.");
+    console.log("Drop PNG/JPG files there (any filename is fine), then run again.");
     process.exit(0);
   }
 
@@ -116,8 +154,13 @@ async function main() {
   let idCounter = existing.length + 1;
 
   for (const file of files) {
-    const slug = slugify(file);
-    const name = titleCaseFromFilename(file);
+    const generic = isGenericFilename(file);
+    const slug = generic
+      ? `product-${String(nextAutoProductNumber([...bySlug.values()])).padStart(3, "0")}`
+      : slugify(file);
+    const name = generic
+      ? `Product ${parseInt(slug.replace(/\D/g, ""), 10)}`
+      : titleCaseFromFilename(file);
     const ext = path.extname(file).toLowerCase();
     const destFile = `${slug}${ext}`;
     const destPath = path.join(PRODUCTS_DIR, destFile);
@@ -127,7 +170,7 @@ async function main() {
 
     const brand = detectBrand(name);
     const category = detectCategory(name);
-    const prev = bySlug.get(slug);
+    const prev = generic ? undefined : bySlug.get(slug);
 
     const product = {
       id: prev?.id ?? `p${idCounter++}`,
