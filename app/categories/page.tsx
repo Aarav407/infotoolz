@@ -1,5 +1,5 @@
 import { CategoryGrid, SectionHeader } from "@/components/Sections";
-import { categories } from "@/data/categories";
+import { getCategoriesWithCounts } from "@/data/products";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function CategoriesPage() {
+  const categories = getCategoriesWithCounts();
   return (
     <div className="px-4 py-8">
       <SectionHeader

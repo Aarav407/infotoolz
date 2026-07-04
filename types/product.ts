@@ -14,8 +14,8 @@ export interface Product {
   category: string;
   categorySlug: string;
   brand: string;
-  price: number;
-  mrp: number;
+  price?: number;
+  mrp?: number;
   inStock: boolean;
   description: string;
   specs: Record<string, string>;

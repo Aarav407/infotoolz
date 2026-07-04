@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { categories } from "@/data/categories";
+import { getCategoriesWithCounts } from "@/data/products";
 import { categoryIconMap, allProductsIcon } from "@/lib/category-icons";
 import { cn } from "@/lib/utils";
 
@@ -40,6 +40,7 @@ function CategoryLink({
 
 function CategoryNav({ className = "" }: { className?: string }) {
   const pathname = usePathname();
+  const categories = getCategoriesWithCounts();
 
   return (
     <nav className={className}>

@@ -1,12 +1,12 @@
 import { Hero } from "@/components/Hero";
 import { SectionHeader, ProductGrid, CategoryGrid } from "@/components/Sections";
-import { categories } from "@/data/categories";
-import { getFeaturedProducts } from "@/data/products";
+import { getFeaturedProducts, getCategoriesWithCounts } from "@/data/products";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
   const featuredProducts = getFeaturedProducts();
+  const categories = getCategoriesWithCounts();
 
   return (
     <>

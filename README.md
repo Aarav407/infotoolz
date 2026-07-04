@@ -48,8 +48,18 @@ types/         # TypeScript interfaces
 public/        # Static assets and product placeholder images
 ```
 
-## Customization
+## Adding products (photos only — no pricing)
 
-- Update company name, contact details, and address in `components/Header.tsx`, `components/Footer.tsx`, and `app/contact/page.tsx`
-- Replace sample products in `data/products.ts` with your actual inventory
-- Adjust categories in `data/categories.ts`
+1. Save PNG/JPG photos in `public/images/uploads/` named after each product:
+   - `Intel Core i7-14700K.png`
+   - `ASUS ROG Strix G16.png`
+
+2. Run the import script (or ask the agent to run it after you upload):
+
+```bash
+npm run import:products
+```
+
+This auto-fills category, brand, and description. **Prices are not shown** — customers contact you for quotes.
+
+You can also attach photos in chat and the agent will add them for you.

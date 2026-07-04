@@ -1,12 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  getProductBySlug,
-  products,
-  formatPrice,
-  getDiscountPercent,
-} from "@/data/products";
+import { getProductBySlug, products } from "@/data/products";
 import { ArrowLeft, CheckCircle, XCircle, Mail, Phone, MessageCircle } from "lucide-react";
 import { company } from "@/data/company";
 import type { Metadata } from "next";
@@ -37,10 +32,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   if (!product) notFound();
 
-  const discount = getDiscountPercent(product.price, product.mrp);
   const related = products
     .filter((p) => p.categorySlug === product.categorySlug && p.id !== product.id)
     .slice(0, 4);
+
+  const specEntries = Object.entries(product.specs);
 
   return (
     <div className="px-4 py-8">
@@ -53,17 +49,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       </Link>
 
       <div className="grid gap-8 lg:grid-cols-2">
-        <div className="relative aspect-square rounded-2xl border border-slate-200 bg-white p-8">
-          {discount > 0 && (
-            <span className="absolute top-4 left-4 z-10 rounded-md bg-red-500 px-3 py-1 text-sm font-semibold text-white">
-              -{discount}% OFF
-            </span>
-          )}
+        <div className="relative aspect-square rounded-2xl border border-slate-200 bg-white p-4">
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="object-contain p-8"
+            className="object-contain p-4"
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
@@ -81,27 +72,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           </h1>
           <p className="mt-1 text-slate-500">Brand: {product.brand}</p>
 
-          <div className="mt-6 flex items-baseline gap-3">
-            <span className="text-3xl font-bold text-slate-900">
-              {formatPrice(product.price)}
-            </span>
-            {discount > 0 && (
-              <>
-                <span className="text-lg text-slate-400 line-through">
-                  {formatPrice(product.mrp)}
-                </span>
-                <span className="rounded-md bg-red-50 px-2 py-0.5 text-sm font-semibold text-red-600">
-                  Save {discount}%
-                </span>
-              </>
-            )}
-          </div>
-
           <div className="mt-4 flex items-center gap-2">
             {product.inStock ? (
               <>
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <span className="font-medium text-green-600">In Stock</span>
+                <span className="font-medium text-green-600">Available</span>
               </>
             ) : (
               <>
@@ -116,7 +91,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">
             <h3 className="font-semibold text-slate-900 mb-2">Interested in this product?</h3>
             <p className="text-sm text-slate-500 mb-4">
-              Contact us for availability, bulk pricing, or technical consultation.
+              Contact us for availability, quotes, or technical consultation.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -149,23 +124,29 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       <div className="mt-12">
         <h2 className="text-xl font-bold text-slate-900 mb-4">Specifications</h2>
-        <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
-          <table className="w-full text-sm">
-            <tbody>
-              {Object.entries(product.specs).map(([key, value], i) => (
-                <tr
-                  key={key}
-                  className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}
-                >
-                  <td className="px-6 py-3 font-medium text-slate-600 w-1/3">
-                    {key}
-                  </td>
-                  <td className="px-6 py-3 text-slate-900">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {specEntries.length > 0 ? (
+          <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <table className="w-full text-sm">
+              <tbody>
+                {specEntries.map(([key, value], i) => (
+                  <tr
+                    key={key}
+                    className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}
+                  >
+                    <td className="px-6 py-3 font-medium text-slate-600 w-1/3">
+                      {key}
+                    </td>
+                    <td className="px-6 py-3 text-slate-900">{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-6 py-8 text-center text-slate-500">
+            Contact us on WhatsApp or email for full specifications.
+          </p>
+        )}
       </div>
 
       {related.length > 0 && (
@@ -193,9 +174,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   <p className="text-sm font-semibold text-slate-900 line-clamp-2">
                     {p.name}
                   </p>
-                  <p className="text-sm font-bold text-[#00AFB9] mt-1">
-                    {formatPrice(p.price)}
-                  </p>
+                  <p className="text-xs text-[#00AFB9] mt-1">View details →</p>
                 </div>
               </Link>
             ))}

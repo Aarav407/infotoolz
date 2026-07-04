@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "generate:images": "node scripts/generate-product-images.mjs",
+    "import:products": "node scripts/import-product-photos.mjs",
     "lint": "eslint"
   },
   "dependencies": {
