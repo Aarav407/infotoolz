@@ -118,14 +118,32 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
         Back to Products
       </Link>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+      <div className="mb-6 rounded-2xl border border-[#00AFB9]/20 bg-[#00AFB9]/5 p-4">
+        <h1 className="text-2xl font-bold text-slate-900">Admin: Upload & Edit Products</h1>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <a
+            href="#upload-products"
+            className="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:text-[#00AFB9]"
+          >
+            1. Upload photos
+          </a>
+          <a
+            href="#edit-product-names"
+            className="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:text-[#00AFB9]"
+          >
+            2. Edit product names
+          </a>
+        </div>
+      </div>
+
+      <div id="upload-products" className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
         <div className="flex items-center gap-3 mb-2">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#00AFB9]/10 text-[#00AFB9]">
             <Upload className="h-6 w-6" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">Upload Product Photos</h1>
-            <p className="text-sm text-slate-500">Infotoolz Admin</p>
+            <h2 className="text-2xl font-bold text-slate-900">1. Upload Product Photos</h2>
+            <p className="text-sm text-slate-500">Choose category first, then upload photos</p>
           </div>
         </div>
 
@@ -228,6 +246,12 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
             >
               View uploaded category →
             </Link>
+            <a
+              href="#edit-product-names"
+              className="ml-4 inline-block mt-4 text-sm font-semibold text-[#00AFB9] hover:underline"
+            >
+              Rename uploaded products →
+            </a>
           </div>
         )}
       </div>
@@ -237,9 +261,9 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
         page to upload your actual product images - they will appear on the website immediately.
       </div>
 
-      <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div id="edit-product-names" className="scroll-mt-24 mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="mb-4">
-          <h2 className="text-xl font-bold text-slate-900">Edit Product Names</h2>
+          <h2 className="text-xl font-bold text-slate-900">2. Edit Product Names</h2>
           <p className="mt-1 text-sm text-slate-500">
             Rename uploaded items like Product 1 after checking the photo.
           </p>
