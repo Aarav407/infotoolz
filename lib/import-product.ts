@@ -167,6 +167,39 @@ export function updateProductName(slug: string, name: string) {
   };
 }
 
+export function deleteProduct(slug: string) {
+  if (!slug.trim()) {
+    throw new Error("Product is required");
+  }
+
+  const products = loadProducts() as Product[];
+  const product = products.find((item) => item.slug === slug);
+
+  if (!product) {
+    throw new Error("Product not found");
+  }
+
+  const nextProducts = products.filter((item) => item.slug !== slug);
+  saveProducts(nextProducts);
+
+  if (product.image.startsWith("/images/products/")) {
+    const imageName = path.basename(product.image);
+    const imagePath = path.join(PRODUCTS_DIR, imageName);
+
+    if (imagePath.startsWith(PRODUCTS_DIR) && fs.existsSync(imagePath)) {
+      fs.unlinkSync(imagePath);
+    }
+  }
+
+  return {
+    name: product.name,
+    slug: product.slug,
+    category: product.category,
+    categorySlug: product.categorySlug,
+    image: product.image,
+  };
+}
+
 export function importProductFromFile(
   filename: string,
   buffer: Buffer,

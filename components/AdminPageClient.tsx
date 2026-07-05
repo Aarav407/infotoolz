@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Upload, CheckCircle, ArrowLeft, ImageIcon, Save } from "lucide-react";
+import { Upload, CheckCircle, ArrowLeft, ImageIcon, Save, Trash2 } from "lucide-react";
 import { categories } from "@/data/categories";
 
 export interface EditableProduct {
@@ -28,6 +28,7 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
     Object.fromEntries(initialProducts.map((product) => [product.slug, product.name]))
   );
   const [savingSlug, setSavingSlug] = useState("");
+  const [deletingSlug, setDeletingSlug] = useState("");
   const [editMessage, setEditMessage] = useState("");
 
   async function loadProducts() {
@@ -108,6 +109,49 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
     }
   }
 
+  async function handleDelete(product: EditableProduct) {
+    const confirmed = window.confirm(
+      `Delete "${product.name}" from the catalog? This also removes its uploaded photo file if it exists.`
+    );
+
+    if (!confirmed) return;
+
+    setDeletingSlug(product.slug);
+    setEditMessage("");
+    setError("");
+
+    try {
+      const res = await fetch("/api/products", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: product.slug }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Could not delete product.");
+        return;
+      }
+
+      setProducts((currentProducts) =>
+        currentProducts.filter((item) => item.slug !== product.slug)
+      );
+      setDraftNames((current) => {
+        const next = { ...current };
+        delete next[product.slug];
+        return next;
+      });
+      setResults((currentResults) =>
+        currentResults.filter((item) => item.slug !== product.slug)
+      );
+      setEditMessage(`Deleted "${data.product.name}".`);
+    } catch {
+      setError("Could not delete product. Please try again.");
+    } finally {
+      setDeletingSlug("");
+    }
+  }
+
   return (
     <div className="px-4 py-8 max-w-2xl mx-auto">
       <Link
@@ -131,7 +175,7 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
             href="#edit-product-names"
             className="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:text-[#00AFB9]"
           >
-            2. Edit product names
+            2. Edit or delete products
           </a>
         </div>
       </div>
@@ -265,7 +309,7 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
         <div className="mb-4">
           <h2 className="text-xl font-bold text-slate-900">2. Edit Product Names</h2>
           <p className="mt-1 text-sm text-slate-500">
-            Rename uploaded items like Product 1 after checking the photo.
+            Rename uploaded items like Product 1, or delete photos added by mistake.
           </p>
         </div>
 
@@ -309,11 +353,20 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
                     <button
                       type="button"
                       onClick={() => handleNameSave(product.slug)}
-                      disabled={savingSlug === product.slug}
+                      disabled={savingSlug === product.slug || deletingSlug === product.slug}
                       className="inline-flex items-center gap-1.5 rounded-lg bg-[#00AFB9] px-3 py-2 text-xs font-semibold text-white hover:bg-[#009AA3] disabled:opacity-50"
                     >
                       <Save className="h-3.5 w-3.5" />
                       {savingSlug === product.slug ? "Saving..." : "Save name"}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(product)}
+                      disabled={deletingSlug === product.slug || savingSlug === product.slug}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-100 disabled:opacity-50"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                      {deletingSlug === product.slug ? "Deleting..." : "Delete"}
                     </button>
                     <Link
                       href={`/products/${product.slug}`}

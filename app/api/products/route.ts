@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getEditableProducts, updateProductName } from "@/lib/import-product";
+import { deleteProduct, getEditableProducts, updateProductName } from "@/lib/import-product";
 
 export const runtime = "nodejs";
 
@@ -33,6 +33,27 @@ export async function PATCH(request: NextRequest) {
   } catch (error) {
     console.error("Product update error:", error);
     const message = error instanceof Error ? error.message : "Could not update product.";
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const slug = typeof body.slug === "string" ? body.slug : "";
+
+    if (!slug) {
+      return NextResponse.json(
+        { error: "Product is required." },
+        { status: 400 }
+      );
+    }
+
+    const product = deleteProduct(slug);
+    return NextResponse.json({ product });
+  } catch (error) {
+    console.error("Product delete error:", error);
+    const message = error instanceof Error ? error.message : "Could not delete product.";
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
