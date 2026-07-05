@@ -119,6 +119,54 @@ function saveProducts(products: unknown[]) {
   fs.writeFileSync(PRODUCTS_JSON, JSON.stringify(products, null, 2));
 }
 
+export function getEditableProducts() {
+  const products = loadProducts() as Product[];
+  return products
+    .map((product) => ({
+      name: product.name,
+      slug: product.slug,
+      category: product.category,
+      categorySlug: product.categorySlug,
+      image: product.image,
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function updateProductName(slug: string, name: string) {
+  const trimmedName = name.trim();
+  if (!trimmedName) {
+    throw new Error("Product name is required");
+  }
+
+  const products = loadProducts() as Product[];
+  const index = products.findIndex((product) => product.slug === slug);
+
+  if (index === -1) {
+    throw new Error("Product not found");
+  }
+
+  const product = products[index];
+  const brand = detectBrand(trimmedName);
+  const updatedProduct: Product = {
+    ...product,
+    name: trimmedName,
+    brand,
+    description: buildDescription(trimmedName, product.category),
+    tags: Array.from(new Set([product.categorySlug, brand.toLowerCase(), ...(product.tags ?? [])])),
+  };
+
+  products[index] = updatedProduct;
+  saveProducts(products.sort((a, b) => a.name.localeCompare(b.name)));
+
+  return {
+    name: updatedProduct.name,
+    slug: updatedProduct.slug,
+    category: updatedProduct.category,
+    categorySlug: updatedProduct.categorySlug,
+    image: updatedProduct.image,
+  };
+}
+
 export function importProductFromFile(
   filename: string,
   buffer: Buffer,
