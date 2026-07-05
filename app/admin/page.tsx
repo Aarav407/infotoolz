@@ -3,11 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Upload, CheckCircle, ArrowLeft, ImageIcon } from "lucide-react";
+import { categories } from "@/data/categories";
 
 interface UploadResult {
   name: string;
   slug: string;
   image: string;
+  category: string;
+  categorySlug: string;
 }
 
 export default function AdminUploadPage() {
@@ -76,6 +79,27 @@ export default function AdminUploadPage() {
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+          <div>
+            <label htmlFor="categorySlug" className="block text-sm font-semibold text-slate-900 mb-2">
+              Choose where these photos should appear
+            </label>
+            <select
+              id="categorySlug"
+              name="categorySlug"
+              defaultValue="processors"
+              className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20"
+            >
+              {categories.map((category) => (
+                <option key={category.slug} value={category.slug}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+            <p className="mt-2 text-xs text-slate-500">
+              Example: choose Processors first, then upload all processor photos together.
+            </p>
+          </div>
+
           <label
             htmlFor="files"
             className="block cursor-pointer rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 p-8 text-center hover:border-[#00AFB9]/50 transition-colors"
@@ -135,16 +159,16 @@ export default function AdminUploadPage() {
               {results.map((r) => (
                 <li key={r.slug}>
                   <Link href={`/products/${r.slug}`} className="hover:underline">
-                    {r.name} →
+                    {r.name} - {r.category} →
                   </Link>
                 </li>
               ))}
             </ul>
             <Link
-              href="/products"
+              href={results[0]?.categorySlug ? `/categories/${results[0].categorySlug}` : "/products"}
               className="inline-block mt-4 text-sm font-semibold text-[#00AFB9] hover:underline"
             >
-              View all products →
+              View uploaded category →
             </Link>
           </div>
         )}

@@ -7,6 +7,7 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const files = formData.getAll("files");
+    const categorySlug = formData.get("categorySlug")?.toString();
 
     if (!files.length) {
       return NextResponse.json({ error: "No files uploaded" }, { status: 400 });
@@ -18,7 +19,7 @@ export async function POST(request: NextRequest) {
       if (!(entry instanceof File)) continue;
 
       const buffer = Buffer.from(await entry.arrayBuffer());
-      const result = importProductFromFile(entry.name, buffer);
+      const result = importProductFromFile(entry.name, buffer, { categorySlug });
       results.push(result);
     }
 

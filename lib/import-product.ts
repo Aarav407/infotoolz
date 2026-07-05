@@ -101,6 +101,11 @@ function detectCategory(name: string) {
   return { slug: "peripherals", name: "Peripherals" };
 }
 
+function getCategoryBySlug(slug: string | null | undefined) {
+  if (!slug) return null;
+  return CATEGORIES.find((cat) => cat.slug === slug) ?? null;
+}
+
 function buildDescription(name: string, category: string): string {
   return `Genuine ${name} — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: ${category}.`;
 }
@@ -114,7 +119,11 @@ function saveProducts(products: unknown[]) {
   fs.writeFileSync(PRODUCTS_JSON, JSON.stringify(products, null, 2));
 }
 
-export function importProductFromFile(filename: string, buffer: Buffer) {
+export function importProductFromFile(
+  filename: string,
+  buffer: Buffer,
+  options: { categorySlug?: string } = {}
+) {
   fs.mkdirSync(PRODUCTS_DIR, { recursive: true });
 
   const existing = loadProducts() as Product[];
@@ -127,7 +136,7 @@ export function importProductFromFile(filename: string, buffer: Buffer) {
   const name = generic ? `Product ${parseInt(slug.replace(/\D/g, ""), 10)}` : titleCaseFromFilename(filename);
 
   const brand = detectBrand(name);
-  const category = detectCategory(name);
+  const category = getCategoryBySlug(options.categorySlug) ?? detectCategory(name);
   const imagePath = `/images/products/${slug}${ext}`;
   const destPath = path.join(PRODUCTS_DIR, `${slug}${ext}`);
 
@@ -162,5 +171,5 @@ export function importProductFromFile(filename: string, buffer: Buffer) {
   );
   saveProducts(merged);
 
-  return { name, slug, image: imagePath };
+  return { name, slug, image: imagePath, category: category.name, categorySlug: category.slug };
 }
