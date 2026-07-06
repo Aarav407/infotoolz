@@ -1,4 +1,5 @@
 import { Hero } from "@/components/Hero";
+import { InteractivePcViewer } from "@/components/InteractivePcViewer";
 import { SectionHeader, ProductGrid, CategoryGrid } from "@/components/Sections";
 import { getFeaturedProducts, getCategoriesWithCounts } from "@/data/products";
 import Link from "next/link";
@@ -11,6 +12,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+
+      <InteractivePcViewer />
 
       <section className="px-4 py-16">
         <SectionHeader
