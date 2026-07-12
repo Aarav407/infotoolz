@@ -43,6 +43,22 @@ export const categories: Category[] = [
   },
   {
     id: "6",
+    name: "SSD",
+    slug: "ssd",
+    description: "SATA SSDs and NVMe drives for fast storage",
+    icon: "ssd",
+    productCount: 0,
+  },
+  {
+    id: "7",
+    name: "HDD",
+    slug: "hdd",
+    description: "Hard disk drives for high-capacity storage",
+    icon: "hdd",
+    productCount: 0,
+  },
+  {
+    id: "8",
     name: "Monitors",
     slug: "monitors",
     description: "Gaming, office & professional displays",
@@ -50,7 +66,7 @@ export const categories: Category[] = [
     productCount: 18,
   },
   {
-    id: "7",
+    id: "9",
     name: "Power Supply",
     slug: "power-supply",
     description: "SMPS units from 450W to 1200W",
@@ -58,7 +74,7 @@ export const categories: Category[] = [
     productCount: 15,
   },
   {
-    id: "8",
+    id: "10",
     name: "Cabinets",
     slug: "cabinets",
     description: "PC cases for gaming and professional builds",
@@ -66,7 +82,7 @@ export const categories: Category[] = [
     productCount: 22,
   },
   {
-    id: "9",
+    id: "11",
     name: "Laptops",
     slug: "laptops",
     description: "Business, gaming & ultrabook laptops",
@@ -74,7 +90,7 @@ export const categories: Category[] = [
     productCount: 30,
   },
   {
-    id: "10",
+    id: "12",
     name: "Peripherals",
     slug: "peripherals",
     description: "Keyboards, mice, headsets & more",
@@ -82,7 +98,7 @@ export const categories: Category[] = [
     productCount: 40,
   },
   {
-    id: "11",
+    id: "13",
     name: "Networking",
     slug: "networking",
     description: "Routers, switches & network adapters",
@@ -90,7 +106,7 @@ export const categories: Category[] = [
     productCount: 16,
   },
   {
-    id: "12",
+    id: "14",
     name: "Pre-built PCs",
     slug: "prebuilt-pcs",
     description: "Ready-to-use desktops for home and office",

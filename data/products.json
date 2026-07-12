@@ -641,8 +641,8 @@
     "id": "p9",
     "name": "Samsung 990 Pro 2TB NVMe SSD",
     "slug": "samsung-990-pro-2tb",
-    "category": "Storage",
-    "categorySlug": "storage",
+    "category": "SSD",
+    "categorySlug": "ssd",
     "brand": "Samsung",
     "inStock": true,
     "featured": true,
@@ -656,6 +656,7 @@
     },
     "image": "/images/products/samsung-990-pro-2tb.jpg",
     "tags": [
+      "ssd",
       "nvme",
       "samsung"
     ]
@@ -686,8 +687,8 @@
     "id": "p10",
     "name": "WD Black SN850X 1TB NVMe SSD",
     "slug": "wd-black-sn850x-1tb",
-    "category": "Storage",
-    "categorySlug": "storage",
+    "category": "SSD",
+    "categorySlug": "ssd",
     "brand": "Western Digital",
     "inStock": true,
     "description": "High-performance gaming SSD with heatsink option for sustained performance.",
@@ -700,6 +701,7 @@
     },
     "image": "/images/products/wd-black-sn850x-1tb.jpg",
     "tags": [
+      "ssd",
       "nvme",
       "gaming"
     ]
