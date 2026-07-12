@@ -48,6 +48,7 @@ export const categories: Category[] = [
     description: "SATA SSDs and NVMe drives for fast storage",
     icon: "ssd",
     productCount: 0,
+    parentSlug: "storage",
   },
   {
     id: "7",
@@ -56,6 +57,7 @@ export const categories: Category[] = [
     description: "Hard disk drives for high-capacity storage",
     icon: "hdd",
     productCount: 0,
+    parentSlug: "storage",
   },
   {
     id: "8",
@@ -117,4 +119,8 @@ export const categories: Category[] = [
 
 export function getCategoryBySlug(slug: string): Category | undefined {
   return categories.find((c) => c.slug === slug);
+}
+
+export function getChildCategories(parentSlug: string): Category[] {
+  return categories.filter((category) => category.parentSlug === parentSlug);
 }

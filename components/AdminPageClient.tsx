@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Upload, CheckCircle, ArrowLeft, ImageIcon, Save, Trash2 } from "lucide-react";
-import { categories } from "@/data/categories";
+import { categories, getChildCategories } from "@/data/categories";
 
 export interface EditableProduct {
   name: string;
@@ -17,6 +17,8 @@ export interface EditableProduct {
 interface AdminPageClientProps {
   initialProducts: EditableProduct[];
 }
+
+const topLevelCategories = categories.filter((category) => !category.parentSlug);
 
 export default function AdminPageClient({ initialProducts }: AdminPageClientProps) {
   const [uploading, setUploading] = useState(false);
@@ -209,14 +211,23 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
               defaultValue="processors"
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-[#00AFB9] focus:outline-none focus:ring-2 focus:ring-[#00AFB9]/20"
             >
-              {categories.map((category) => (
-                <option key={category.slug} value={category.slug}>
-                  {category.name}
-                </option>
-              ))}
+              {topLevelCategories.map((category) => {
+                const childCategories = getChildCategories(category.slug);
+
+                return (
+                  <optgroup key={category.slug} label={category.name}>
+                    <option value={category.slug}>{category.name}</option>
+                    {childCategories.map((childCategory) => (
+                      <option key={childCategory.slug} value={childCategory.slug}>
+                        {childCategory.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                );
+              })}
             </select>
             <p className="mt-2 text-xs text-slate-500">
-              Example: choose Processors first, then upload all processor photos together.
+              Example: choose Storage → SSD for SSD photos, or Storage → HDD for hard drives.
             </p>
           </div>
 

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getCategoriesWithCounts } from "@/data/products";
+import { getAllCategoriesWithCounts, getCategoriesWithCounts } from "@/data/products";
+import { getChildCategories } from "@/data/categories";
 import { categoryIconMap, allProductsIcon } from "@/lib/category-icons";
 import { cn } from "@/lib/utils";
 
@@ -41,6 +42,7 @@ function CategoryLink({
 function CategoryNav({ className = "" }: { className?: string }) {
   const pathname = usePathname();
   const categories = getCategoriesWithCounts();
+  const allCategories = getAllCategoriesWithCounts();
 
   return (
     <nav className={className}>
@@ -59,6 +61,12 @@ function CategoryNav({ className = "" }: { className?: string }) {
         {categories.map((cat) => {
           const href = `/categories/${cat.slug}`;
           const active = pathname === href || pathname.startsWith(`${href}/`);
+          const childCategories = getChildCategories(cat.slug)
+            .map((childCategory) =>
+              allCategories.find((category) => category.slug === childCategory.slug)
+            )
+            .filter((childCategory) => childCategory !== undefined);
+
           return (
             <li key={cat.slug}>
               <CategoryLink
@@ -68,6 +76,24 @@ function CategoryNav({ className = "" }: { className?: string }) {
                 count={cat.productCount}
                 active={active}
               />
+              {childCategories.length > 0 && (
+                <ul className="mt-0.5 ml-6 space-y-0.5 border-l border-slate-200 pl-2">
+                  {childCategories.map((childCategory) => {
+                    const childHref = `/categories/${childCategory.slug}`;
+                    return (
+                      <li key={childCategory.slug}>
+                        <CategoryLink
+                          href={childHref}
+                          icon={categoryIconMap[childCategory.icon]}
+                          label={childCategory.name}
+                          count={childCategory.productCount}
+                          active={pathname === childHref}
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </li>
           );
         })}

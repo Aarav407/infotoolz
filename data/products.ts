@@ -1,6 +1,6 @@
 import catalog from "./products.json";
 import { Product } from "@/types/product";
-import { categories } from "./categories";
+import { categories, getChildCategories } from "./categories";
 
 export const products: Product[] = catalog as unknown as Product[];
 
@@ -9,7 +9,9 @@ export function getProductBySlug(slug: string): Product | undefined {
 }
 
 export function getProductsByCategory(categorySlug: string): Product[] {
-  return products.filter((p) => p.categorySlug === categorySlug);
+  const childSlugs = getChildCategories(categorySlug).map((category) => category.slug);
+  const categorySlugs = [categorySlug, ...childSlugs];
+  return products.filter((p) => categorySlugs.includes(p.categorySlug));
 }
 
 export function getFeaturedProducts(): Product[] {
@@ -29,6 +31,20 @@ export function searchProducts(query: string): Product[] {
 }
 
 export function getCategoriesWithCounts() {
+  return categories
+    .filter((cat) => !cat.parentSlug)
+    .map((cat) => {
+      const childSlugs = getChildCategories(cat.slug).map((category) => category.slug);
+      const categorySlugs = [cat.slug, ...childSlugs];
+
+      return {
+        ...cat,
+        productCount: products.filter((p) => categorySlugs.includes(p.categorySlug)).length,
+      };
+    });
+}
+
+export function getAllCategoriesWithCounts() {
   return categories.map((cat) => ({
     ...cat,
     productCount: products.filter((p) => p.categorySlug === cat.slug).length,
