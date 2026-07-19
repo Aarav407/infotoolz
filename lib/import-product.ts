@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { Product } from "@/types/product";
+import { lookupProductFromName } from "@/lib/product-specs";
 
 const PRODUCTS_DIR = path.join(process.cwd(), "public/images/products");
 const PRODUCTS_JSON = path.join(process.cwd(), "data/products.json");
@@ -134,7 +135,11 @@ export function getEditableProducts() {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export function updateProductName(slug: string, name: string) {
+export function updateProductName(
+  slug: string,
+  name: string,
+  options: { fillSpecs?: boolean } = {}
+) {
   const trimmedName = name.trim();
   if (!trimmedName) {
     throw new Error("Product name is required");
@@ -149,13 +154,37 @@ export function updateProductName(slug: string, name: string) {
 
   const product = products[index];
   const brand = detectBrand(trimmedName);
-  const updatedProduct: Product = {
-    ...product,
-    name: trimmedName,
-    brand,
-    description: buildDescription(trimmedName, product.category),
-    tags: Array.from(new Set([product.categorySlug, brand.toLowerCase(), ...(product.tags ?? [])])),
-  };
+
+  let updatedProduct: Product;
+
+  if (options.fillSpecs) {
+    const lookup = lookupProductFromName(trimmedName);
+
+    if (Object.keys(lookup.specs).length === 0) {
+      throw new Error(
+        "Could not detect specs from that name. Try a fuller name like \"Intel Core i5 12th Gen Processor\" or \"Samsung 990 PRO 2TB\"."
+      );
+    }
+
+    updatedProduct = {
+      ...product,
+      name: trimmedName,
+      brand: lookup.brand,
+      category: lookup.category,
+      categorySlug: lookup.categorySlug,
+      description: lookup.description,
+      specs: lookup.specs,
+      tags: lookup.tags,
+    };
+  } else {
+    updatedProduct = {
+      ...product,
+      name: trimmedName,
+      brand,
+      description: buildDescription(trimmedName, product.category),
+      tags: Array.from(new Set([product.categorySlug, brand.toLowerCase(), ...(product.tags ?? [])])),
+    };
+  }
 
   products[index] = updatedProduct;
   saveProducts(products.sort((a, b) => a.name.localeCompare(b.name)));
@@ -166,6 +195,8 @@ export function updateProductName(slug: string, name: string) {
     category: updatedProduct.category,
     categorySlug: updatedProduct.categorySlug,
     image: updatedProduct.image,
+    specsFilled: Boolean(options.fillSpecs),
+    specsCount: Object.keys(updatedProduct.specs ?? {}).length,
   };
 }
 

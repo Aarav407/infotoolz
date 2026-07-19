@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Upload, CheckCircle, ArrowLeft, ImageIcon, Save, Trash2 } from "lucide-react";
+import { Upload, CheckCircle, ArrowLeft, ImageIcon, Save, Trash2, Sparkles } from "lucide-react";
 import { categories, getChildCategories } from "@/data/categories";
 
 export interface EditableProduct {
@@ -30,6 +30,7 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
     Object.fromEntries(initialProducts.map((product) => [product.slug, product.name]))
   );
   const [savingSlug, setSavingSlug] = useState("");
+  const [fillingSlug, setFillingSlug] = useState("");
   const [deletingSlug, setDeletingSlug] = useState("");
   const [editMessage, setEditMessage] = useState("");
 
@@ -80,8 +81,9 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
     }
   }
 
-  async function handleNameSave(slug: string) {
-    setSavingSlug(slug);
+  async function handleNameSave(slug: string, options: { fillSpecs?: boolean } = {}) {
+    const busySetter = options.fillSpecs ? setFillingSlug : setSavingSlug;
+    busySetter(slug);
     setEditMessage("");
     setError("");
 
@@ -89,7 +91,11 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
       const res = await fetch("/api/products", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, name: draftNames[slug] || "" }),
+        body: JSON.stringify({
+          slug,
+          name: draftNames[slug] || "",
+          fillSpecs: Boolean(options.fillSpecs),
+        }),
       });
       const data = await res.json();
 
@@ -103,11 +109,27 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
           product.slug === slug ? { ...product, ...data.product } : product
         )
       );
-      setEditMessage(`Saved "${data.product.name}".`);
+      setDraftNames((current) => ({
+        ...current,
+        [slug]: data.product.name,
+      }));
+
+      if (options.fillSpecs) {
+        const count = data.product.specsCount ?? 0;
+        setEditMessage(
+          `Saved "${data.product.name}" and filled ${count} spec${count === 1 ? "" : "s"} (${data.product.category}).`
+        );
+      } else {
+        setEditMessage(`Saved "${data.product.name}".`);
+      }
     } catch {
-      setError("Could not save product name. Please try again.");
+      setError(
+        options.fillSpecs
+          ? "Could not fill specs. Please try again."
+          : "Could not save product name. Please try again."
+      );
     } finally {
-      setSavingSlug("");
+      busySetter("");
     }
   }
 
@@ -320,7 +342,9 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
         <div className="mb-4">
           <h2 className="text-xl font-bold text-slate-900">2. Edit Product Names</h2>
           <p className="mt-1 text-sm text-slate-500">
-            Rename uploaded items like Product 1, or delete photos added by mistake.
+            Rename uploaded items like Product 1, then use <strong>Fill Specs</strong> to
+            auto-import brand, category, description, and specs from the name (for example
+            &quot;Intel Core i5 12th Gen Processor&quot; or &quot;Samsung 990 PRO 2TB&quot;).
           </p>
         </div>
 
@@ -364,7 +388,11 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
                     <button
                       type="button"
                       onClick={() => handleNameSave(product.slug)}
-                      disabled={savingSlug === product.slug || deletingSlug === product.slug}
+                      disabled={
+                        savingSlug === product.slug ||
+                        fillingSlug === product.slug ||
+                        deletingSlug === product.slug
+                      }
                       className="inline-flex items-center gap-1.5 rounded-lg bg-[#00AFB9] px-3 py-2 text-xs font-semibold text-white hover:bg-[#009AA3] disabled:opacity-50"
                     >
                       <Save className="h-3.5 w-3.5" />
@@ -372,8 +400,25 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
                     </button>
                     <button
                       type="button"
+                      onClick={() => handleNameSave(product.slug, { fillSpecs: true })}
+                      disabled={
+                        savingSlug === product.slug ||
+                        fillingSlug === product.slug ||
+                        deletingSlug === product.slug
+                      }
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#00AFB9]/40 bg-[#00AFB9]/10 px-3 py-2 text-xs font-semibold text-[#007F87] hover:bg-[#00AFB9]/20 disabled:opacity-50"
+                    >
+                      <Sparkles className="h-3.5 w-3.5" />
+                      {fillingSlug === product.slug ? "Filling..." : "Fill Specs"}
+                    </button>
+                    <button
+                      type="button"
                       onClick={() => handleDelete(product)}
-                      disabled={deletingSlug === product.slug || savingSlug === product.slug}
+                      disabled={
+                        deletingSlug === product.slug ||
+                        savingSlug === product.slug ||
+                        fillingSlug === product.slug
+                      }
                       className="inline-flex items-center gap-1.5 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-100 disabled:opacity-50"
                     >
                       <Trash2 className="h-3.5 w-3.5" />

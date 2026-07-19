@@ -20,6 +20,7 @@ export async function PATCH(request: NextRequest) {
     const body = await request.json();
     const slug = typeof body.slug === "string" ? body.slug : "";
     const name = typeof body.name === "string" ? body.name : "";
+    const fillSpecs = Boolean(body.fillSpecs);
 
     if (!slug || !name.trim()) {
       return NextResponse.json(
@@ -28,12 +29,13 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
-    const product = updateProductName(slug, name);
+    const product = updateProductName(slug, name, { fillSpecs });
     return NextResponse.json({ product });
   } catch (error) {
     console.error("Product update error:", error);
     const message = error instanceof Error ? error.message : "Could not update product.";
-    return NextResponse.json({ error: message }, { status: 500 });
+    const status = message.startsWith("Could not detect specs") ? 400 : 500;
+    return NextResponse.json({ error: message }, { status });
   }
 }
 
