@@ -44,25 +44,40 @@ export function CategoryCard({ category }: CategoryCardProps) {
   const childCategories = getChildCategories(category.slug);
 
   return (
-    <Link
-      href={`/categories/${category.slug}`}
-      className="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-6 text-center hover:border-[#00AFB9]/40 hover:shadow-md transition-all duration-200"
-    >
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#00AFB9]/10 text-[#00AFB9] group-hover:bg-[#00AFB9] group-hover:text-white transition-colors">
-        {iconMap[category.icon]}
-      </div>
-      <h3 className="font-semibold text-slate-900 group-hover:text-[#00AFB9] transition-colors">
-        {category.name}
-      </h3>
-      <p className="mt-1 text-xs text-slate-500 line-clamp-2">{category.description}</p>
+    <div className="group flex h-full flex-col items-center rounded-xl border border-slate-200 bg-white p-6 text-center hover:border-[#00AFB9]/40 hover:shadow-md transition-all duration-200">
+      <Link
+        href={`/categories/${category.slug}`}
+        className="flex flex-col items-center"
+      >
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#00AFB9]/10 text-[#00AFB9] group-hover:bg-[#00AFB9] group-hover:text-white transition-colors">
+          {iconMap[category.icon]}
+        </div>
+        <h3 className="font-semibold text-slate-900 group-hover:text-[#00AFB9] transition-colors">
+          {category.name}
+        </h3>
+        <p className="mt-1 text-xs text-slate-500 line-clamp-2">{category.description}</p>
+      </Link>
+
       {childCategories.length > 0 && (
-        <p className="mt-2 text-[11px] font-medium leading-relaxed text-slate-500">
-          {childCategories.map((child) => child.name).join(" · ")}
-        </p>
+        <div className="mt-3 flex w-full flex-wrap items-center justify-center gap-1.5">
+          {childCategories.map((child) => (
+            <Link
+              key={child.slug}
+              href={`/categories/${child.slug}`}
+              className="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[11px] font-semibold text-slate-700 hover:border-[#00AFB9] hover:bg-[#00AFB9]/10 hover:text-[#00AFB9]"
+            >
+              {child.name}
+            </Link>
+          ))}
+        </div>
       )}
-      <p className="mt-2 text-xs font-medium text-[#00AFB9]">
+
+      <Link
+        href={`/categories/${category.slug}`}
+        className="mt-2 text-xs font-medium text-[#00AFB9] hover:underline"
+      >
         {category.productCount}+ Products
-      </p>
-    </Link>
+      </Link>
+    </div>
   );
 }
