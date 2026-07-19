@@ -108,6 +108,23 @@ export const categories: Category[] = [
     productCount: 16,
   },
   {
+    id: "15",
+    name: "Switches",
+    slug: "switches",
+    description: "Managed and unmanaged network switches",
+    icon: "switch",
+    productCount: 0,
+    parentSlug: "networking",
+  },
+  {
+    id: "16",
+    name: "Servers",
+    slug: "servers",
+    description: "Tower and rack servers for business workloads",
+    icon: "server",
+    productCount: 0,
+  },
+  {
     id: "14",
     name: "Pre-built PCs",
     slug: "prebuilt-pcs",

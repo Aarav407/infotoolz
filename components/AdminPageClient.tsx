@@ -249,7 +249,7 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
               })}
             </select>
             <p className="mt-2 text-xs text-slate-500">
-              Example: choose Storage → SSD for SSD photos, or Storage → HDD for hard drives.
+              Example: Storage → SSD / HDD, or Networking → Switches. Servers is its own top-level option.
             </p>
           </div>
 

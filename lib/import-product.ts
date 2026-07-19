@@ -19,7 +19,9 @@ const CATEGORIES = [
   { slug: "cabinets", name: "Cabinets", keywords: ["cabinet", "case", "chassis", "tower"] },
   { slug: "laptops", name: "Laptops", keywords: ["laptop", "notebook", "thinkpad", "vivobook"] },
   { slug: "peripherals", name: "Peripherals", keywords: ["keyboard", "mouse", "headset", "webcam", "logitech"] },
-  { slug: "networking", name: "Networking", keywords: ["router", "switch", "wifi", "tp-link"] },
+  { slug: "switches", name: "Switches", keywords: ["switch", "poe switch", "managed switch", "unmanaged switch", "gigabit switch"] },
+  { slug: "servers", name: "Servers", keywords: ["server", "rack server", "tower server", "poweredge", "proliant", "thinksystem"] },
+  { slug: "networking", name: "Networking", keywords: ["router", "wifi", "tp-link", "access point", "network adapter"] },
   { slug: "prebuilt-pcs", name: "Pre-built PCs", keywords: ["desktop pc", "prebuilt", "gaming pc"] },
 ];
 
@@ -27,7 +29,7 @@ const BRANDS = [
   "Intel", "AMD", "NVIDIA", "ASUS", "MSI", "Dell", "Lenovo", "Samsung",
   "Corsair", "Logitech", "LG", "TP-Link", "Gigabyte", "Western Digital",
   "WD", "G.Skill", "NZXT", "Lian Li", "Cooler Master", "Keychron", "Infotoolz",
-  "HP", "Acer", "Apple", "BenQ", "Crucial", "Kingston", "Seagate",
+  "HP", "Acer", "Apple", "BenQ", "Crucial", "Kingston", "Seagate", "HPE", "Cisco",
 ];
 
 export function slugify(name: string): string {

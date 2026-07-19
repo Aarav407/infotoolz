@@ -183,6 +183,30 @@
     ]
   },
   {
+    "id": "p33",
+    "name": "Dell PowerEdge T350 Tower Server",
+    "slug": "dell-poweredge-t350",
+    "category": "Servers",
+    "categorySlug": "servers",
+    "brand": "Dell",
+    "inStock": true,
+    "featured": true,
+    "description": "Reliable tower server for growing businesses, branch offices, and light virtualization workloads.",
+    "specs": {
+      "Form": "Tower",
+      "Processor": "Intel Xeon E-2300 series",
+      "Memory Support": "Up to 128GB DDR4",
+      "Storage": "Up to 8x 3.5\" drives",
+      "Use Case": "SMB / branch office"
+    },
+    "image": "/images/products/dell-poweredge-t350.svg",
+    "tags": [
+      "server",
+      "dell",
+      "xeon"
+    ]
+  },
+  {
     "id": "p8",
     "name": "G.Skill Trident Z5 RGB 64GB (2x32GB) 6400MHz",
     "slug": "gskill-trident-z5-64gb",
@@ -681,6 +705,29 @@
     "tags": [
       "wifi6",
       "router"
+    ]
+  },
+  {
+    "id": "p32",
+    "name": "TP-Link TL-SG108 8-Port Gigabit Switch",
+    "slug": "tp-link-tl-sg108",
+    "category": "Switches",
+    "categorySlug": "switches",
+    "brand": "TP-Link",
+    "inStock": true,
+    "description": "Compact 8-port gigabit unmanaged switch for offices, labs, and small business networks.",
+    "specs": {
+      "Ports": "8x Gigabit RJ45",
+      "Type": "Unmanaged",
+      "Speed": "10/100/1000 Mbps",
+      "Form": "Desktop",
+      "PoE": "No"
+    },
+    "image": "/images/products/tp-link-tl-sg108.svg",
+    "tags": [
+      "switch",
+      "gigabit",
+      "tp-link"
     ]
   },
   {

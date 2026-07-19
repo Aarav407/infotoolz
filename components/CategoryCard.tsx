@@ -10,6 +10,8 @@ import {
   Zap,
   MemoryStick,
   CircuitBoard,
+  Network,
+  Server,
 } from "lucide-react";
 import { Category } from "@/types/product";
 
@@ -19,12 +21,16 @@ const iconMap: Record<string, React.ReactNode> = {
   motherboard: <CircuitBoard className="h-7 w-7" />,
   memory: <MemoryStick className="h-7 w-7" />,
   storage: <HardDrive className="h-7 w-7" />,
+  ssd: <HardDrive className="h-7 w-7" />,
+  hdd: <HardDrive className="h-7 w-7" />,
   monitor: <Monitor className="h-7 w-7" />,
   psu: <Zap className="h-7 w-7" />,
   cabinet: <Box className="h-7 w-7" />,
   laptop: <Laptop className="h-7 w-7" />,
   peripheral: <Keyboard className="h-7 w-7" />,
   network: <Wifi className="h-7 w-7" />,
+  switch: <Network className="h-7 w-7" />,
+  server: <Server className="h-7 w-7" />,
   desktop: <Monitor className="h-7 w-7" />,
 };
 

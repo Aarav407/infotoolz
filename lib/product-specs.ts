@@ -20,7 +20,9 @@ const CATEGORIES = [
   { slug: "cabinets", name: "Cabinets", keywords: ["cabinet", "case", "chassis", "tower", "h7 flow", "o11 dynamic"] },
   { slug: "laptops", name: "Laptops", keywords: ["laptop", "notebook", "thinkpad", "vivobook", "strix g"] },
   { slug: "peripherals", name: "Peripherals", keywords: ["keyboard", "mouse", "headset", "webcam", "logitech", "keychron"] },
-  { slug: "networking", name: "Networking", keywords: ["router", "switch", "wifi", "tp-link", "archer"] },
+  { slug: "switches", name: "Switches", keywords: ["switch", "poe switch", "managed switch", "unmanaged switch", "gigabit switch"] },
+  { slug: "servers", name: "Servers", keywords: ["server", "rack server", "tower server", "poweredge", "proliant", "thinksystem"] },
+  { slug: "networking", name: "Networking", keywords: ["router", "wifi", "tp-link", "archer", "access point", "network adapter"] },
   { slug: "prebuilt-pcs", name: "Pre-built PCs", keywords: ["desktop pc", "prebuilt", "gaming pc", "gaming pro pc"] },
 ];
 
@@ -46,6 +48,8 @@ const BRANDS = [
   "MSI",
   "Dell",
   "Lenovo",
+  "Cisco",
+  "HPE",
   "NZXT",
   "BenQ",
   "Apple",
@@ -326,6 +330,34 @@ const KNOWN_SPECS: Array<{
     tags: ["wifi6", "router"],
   },
   {
+    match: /tl-sg108|sg108|8[-\s]?port.*switch|gigabit.*switch/i,
+    brand: "TP-Link",
+    categorySlug: "switches",
+    description: "Compact gigabit network switch for offices, labs, and small business setups.",
+    specs: {
+      Ports: "8x Gigabit RJ45",
+      Type: "Unmanaged",
+      Speed: "10/100/1000 Mbps",
+      Form: "Desktop",
+      PoE: "No",
+    },
+    tags: ["switch", "gigabit"],
+  },
+  {
+    match: /poweredge\s*t350|t350\s*server/i,
+    brand: "Dell",
+    categorySlug: "servers",
+    description: "Tower server built for growing businesses, branch offices, and light virtualization.",
+    specs: {
+      Form: "Tower",
+      Processor: "Intel Xeon E-2300 series",
+      "Memory Support": "Up to 128GB DDR4",
+      Storage: "Up to 8x 3.5\" drives",
+      "Use Case": "SMB / branch office",
+    },
+    tags: ["server", "dell", "xeon"],
+  },
+  {
     match: /h7\s*flow/i,
     brand: "NZXT",
     categorySlug: "cabinets",
@@ -545,6 +577,28 @@ function heuristicSpecs(name: string, categorySlug: string): Record<string, stri
     if (/wifi\s*6e|axe/i.test(name)) specs.Standard = "WiFi 6E";
     else if (/wifi\s*6|ax\d/i.test(name)) specs.Standard = "WiFi 6 (802.11ax)";
     else if (/wifi\s*7|be\d/i.test(name)) specs.Standard = "WiFi 7";
+    return specs;
+  }
+
+  if (categorySlug === "switches") {
+    const ports = name.match(/(\d{1,2})\s*[-\s]?port/i);
+    if (ports) specs.Ports = `${ports[1]}x Ethernet`;
+    if (/poe/i.test(name)) specs.PoE = "Yes";
+    if (/managed/i.test(name) && !/unmanaged/i.test(name)) specs.Type = "Managed";
+    else if (/unmanaged/i.test(name)) specs.Type = "Unmanaged";
+    if (/gigabit|1g|1000/i.test(name)) specs.Speed = "10/100/1000 Mbps";
+    else if (/2\.5g/i.test(name)) specs.Speed = "2.5 Gbps";
+    else if (/10g/i.test(name)) specs.Speed = "10 Gbps";
+    return specs;
+  }
+
+  if (categorySlug === "servers") {
+    if (/rack|1u|2u/i.test(name)) specs.Form = /2u/i.test(name) ? "2U Rack" : "1U Rack";
+    else if (/tower/i.test(name)) specs.Form = "Tower";
+    if (/xeon/i.test(name)) specs.Processor = "Intel Xeon";
+    else if (/epyc/i.test(name)) specs.Processor = "AMD EPYC";
+    if (/ddr5/i.test(name)) specs.Memory = "DDR5";
+    else if (/ddr4/i.test(name)) specs.Memory = "DDR4";
     return specs;
   }
 
