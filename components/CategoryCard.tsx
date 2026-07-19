@@ -30,6 +30,7 @@ const iconMap: Record<string, React.ReactNode> = {
   peripheral: <Keyboard className="h-7 w-7" />,
   network: <Wifi className="h-7 w-7" />,
   switch: <Network className="h-7 w-7" />,
+  nas: <HardDrive className="h-7 w-7" />,
   server: <Server className="h-7 w-7" />,
   desktop: <Monitor className="h-7 w-7" />,
 };

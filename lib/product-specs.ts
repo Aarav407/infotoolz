@@ -21,6 +21,7 @@ const CATEGORIES = [
   { slug: "laptops", name: "Laptops", keywords: ["laptop", "notebook", "thinkpad", "vivobook", "strix g"] },
   { slug: "peripherals", name: "Peripherals", keywords: ["keyboard", "mouse", "headset", "webcam", "logitech", "keychron"] },
   { slug: "switches", name: "Switches", keywords: ["switch", "poe switch", "managed switch", "unmanaged switch", "gigabit switch"] },
+  { slug: "nas", name: "NAS", keywords: ["nas", "network attached storage", "synology", "qnap", "diskstation", "my cloud"] },
   { slug: "servers", name: "Servers", keywords: ["server", "rack server", "tower server", "poweredge", "proliant", "thinksystem"] },
   { slug: "networking", name: "Networking", keywords: ["router", "wifi", "tp-link", "archer", "access point", "network adapter"] },
   { slug: "prebuilt-pcs", name: "Pre-built PCs", keywords: ["desktop pc", "prebuilt", "gaming pc", "gaming pro pc"] },
@@ -50,6 +51,8 @@ const BRANDS = [
   "Lenovo",
   "Cisco",
   "HPE",
+  "Synology",
+  "QNAP",
   "NZXT",
   "BenQ",
   "Apple",
@@ -358,6 +361,20 @@ const KNOWN_SPECS: Array<{
     tags: ["server", "dell", "xeon"],
   },
   {
+    match: /ds224\+|diskstation\s*ds224/i,
+    brand: "Synology",
+    categorySlug: "nas",
+    description: "Compact 2-bay NAS for home and small office backup, media, and file sharing.",
+    specs: {
+      Bays: "2-bay",
+      "Drive Support": '3.5" / 2.5" SATA',
+      "Max Capacity": "Up to 40TB (raw)",
+      Connectivity: "2x 1GbE LAN",
+      Form: "Desktop",
+    },
+    tags: ["nas", "synology", "backup"],
+  },
+  {
     match: /h7\s*flow/i,
     brand: "NZXT",
     categorySlug: "cabinets",
@@ -589,6 +606,18 @@ function heuristicSpecs(name: string, categorySlug: string): Record<string, stri
     if (/gigabit|1g|1000/i.test(name)) specs.Speed = "10/100/1000 Mbps";
     else if (/2\.5g/i.test(name)) specs.Speed = "2.5 Gbps";
     else if (/10g/i.test(name)) specs.Speed = "10 Gbps";
+    return specs;
+  }
+
+  if (categorySlug === "nas") {
+    const bays = name.match(/(\d)\s*[-\s]?bay/i);
+    if (bays) specs.Bays = `${bays[1]}-bay`;
+    if (/2\.5g|2\.5\s*gbe/i.test(name)) specs.Connectivity = "2.5GbE";
+    else if (/10g/i.test(name)) specs.Connectivity = "10GbE";
+    else if (/1g|gigabit|gbe/i.test(name)) specs.Connectivity = "1GbE";
+    if (/rack/i.test(name)) specs.Form = "Rackmount";
+    else specs.Form = "Desktop";
+    specs.Type = "Network Attached Storage";
     return specs;
   }
 

@@ -686,6 +686,29 @@
     ]
   },
   {
+    "id": "p34",
+    "name": "Synology DiskStation DS224+",
+    "slug": "synology-ds224-plus",
+    "category": "NAS",
+    "categorySlug": "nas",
+    "brand": "Synology",
+    "inStock": true,
+    "description": "Compact 2-bay NAS for home and small office backup, media streaming, and shared file storage.",
+    "specs": {
+      "Bays": "2-bay",
+      "Drive Support": "3.5\" / 2.5\" SATA",
+      "Max Capacity": "Up to 40TB (raw)",
+      "Connectivity": "2x 1GbE LAN",
+      "Form": "Desktop"
+    },
+    "image": "/images/products/synology-ds224-plus.svg",
+    "tags": [
+      "nas",
+      "synology",
+      "backup"
+    ]
+  },
+  {
     "id": "p21",
     "name": "TP-Link Archer AX73 WiFi 6 Router",
     "slug": "tp-link-archer-ax73",

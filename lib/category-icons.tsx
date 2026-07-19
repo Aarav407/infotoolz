@@ -29,6 +29,7 @@ export const categoryIconMap: Record<string, React.ReactNode> = {
   peripheral: <Keyboard className="h-4 w-4 shrink-0" />,
   network: <Wifi className="h-4 w-4 shrink-0" />,
   switch: <Network className="h-4 w-4 shrink-0" />,
+  nas: <HardDrive className="h-4 w-4 shrink-0" />,
   server: <Server className="h-4 w-4 shrink-0" />,
   desktop: <Monitor className="h-4 w-4 shrink-0" />,
 };

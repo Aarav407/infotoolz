@@ -249,7 +249,7 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
               })}
             </select>
             <p className="mt-2 text-xs text-slate-500">
-              Example: Storage → SSD / HDD, or Networking → Switches. Servers is its own top-level option.
+              Example: Storage → SSD / HDD, or Networking → Switches / NAS. Servers is its own top-level option.
             </p>
           </div>
 
