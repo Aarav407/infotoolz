@@ -14,6 +14,7 @@ import {
   Server,
 } from "lucide-react";
 import { Category } from "@/types/product";
+import { getChildCategories } from "@/data/categories";
 
 const iconMap: Record<string, React.ReactNode> = {
   cpu: <Cpu className="h-7 w-7" />,
@@ -40,6 +41,8 @@ interface CategoryCardProps {
 }
 
 export function CategoryCard({ category }: CategoryCardProps) {
+  const childCategories = getChildCategories(category.slug);
+
   return (
     <Link
       href={`/categories/${category.slug}`}
@@ -52,6 +55,11 @@ export function CategoryCard({ category }: CategoryCardProps) {
         {category.name}
       </h3>
       <p className="mt-1 text-xs text-slate-500 line-clamp-2">{category.description}</p>
+      {childCategories.length > 0 && (
+        <p className="mt-2 text-[11px] font-medium leading-relaxed text-slate-500">
+          {childCategories.map((child) => child.name).join(" · ")}
+        </p>
+      )}
       <p className="mt-2 text-xs font-medium text-[#00AFB9]">
         {category.productCount}+ Products
       </p>

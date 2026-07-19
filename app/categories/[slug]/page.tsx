@@ -56,18 +56,22 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
       />
 
       {childCategories.length > 0 && (
-        <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-5">
+        <div className="mb-8 rounded-2xl border border-[#00AFB9]/20 bg-[#00AFB9]/5 p-5">
           <p className="mb-3 text-sm font-semibold text-slate-900">
-            Choose a {category.name} vertical
+            Under {category.name}
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="grid gap-3 sm:grid-cols-3">
             {childCategories.map((childCategory) => (
               <Link
                 key={childCategory.slug}
                 href={`/categories/${childCategory.slug}`}
-                className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-[#00AFB9] hover:text-[#00AFB9]"
+                className="rounded-xl border border-slate-200 bg-white px-4 py-4 text-sm font-semibold text-slate-800 hover:border-[#00AFB9] hover:text-[#00AFB9]"
               >
-                {childCategory.name} ({childCategory.productCount})
+                <span className="block">{childCategory.name}</span>
+                <span className="mt-1 block text-xs font-normal text-slate-500">
+                  {childCategory.productCount} product
+                  {childCategory.productCount === 1 ? "" : "s"}
+                </span>
               </Link>
             ))}
           </div>

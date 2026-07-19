@@ -103,7 +103,7 @@ export const categories: Category[] = [
     id: "13",
     name: "Networking",
     slug: "networking",
-    description: "Routers, switches, NAS & network adapters",
+    description: "Routers, switches, NAS, servers & network adapters",
     icon: "network",
     productCount: 16,
   },
@@ -132,6 +132,7 @@ export const categories: Category[] = [
     description: "Tower and rack servers for business workloads",
     icon: "server",
     productCount: 0,
+    parentSlug: "networking",
   },
   {
     id: "14",
