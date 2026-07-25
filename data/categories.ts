@@ -1,0 +1,153 @@
+import { Category } from "@/types/product";
+
+export const categories: Category[] = [
+  {
+    id: "1",
+    name: "Processors",
+    slug: "processors",
+    description: "Intel & AMD CPUs for desktops and workstations",
+    icon: "cpu",
+    productCount: 24,
+  },
+  {
+    id: "2",
+    name: "Graphics Cards",
+    slug: "graphics-cards",
+    description: "NVIDIA & AMD GPUs for gaming and professional use",
+    icon: "gpu",
+    productCount: 32,
+  },
+  {
+    id: "3",
+    name: "Motherboards",
+    slug: "motherboards",
+    description: "ATX, Micro-ATX & Mini-ITX boards for all platforms",
+    icon: "motherboard",
+    productCount: 28,
+  },
+  {
+    id: "4",
+    name: "Memory (RAM)",
+    slug: "memory",
+    description: "DDR4 & DDR5 RAM modules from top brands",
+    icon: "memory",
+    productCount: 20,
+  },
+  {
+    id: "5",
+    name: "Storage",
+    slug: "storage",
+    description: "SSDs, HDDs & NVMe drives for every need",
+    icon: "storage",
+    productCount: 36,
+  },
+  {
+    id: "6",
+    name: "SSD",
+    slug: "ssd",
+    description: "SATA SSDs and NVMe drives for fast storage",
+    icon: "ssd",
+    productCount: 0,
+    parentSlug: "storage",
+  },
+  {
+    id: "7",
+    name: "HDD",
+    slug: "hdd",
+    description: "Hard disk drives for high-capacity storage",
+    icon: "hdd",
+    productCount: 0,
+    parentSlug: "storage",
+  },
+  {
+    id: "8",
+    name: "Monitors",
+    slug: "monitors",
+    description: "Gaming, office & professional displays",
+    icon: "monitor",
+    productCount: 18,
+  },
+  {
+    id: "9",
+    name: "Power Supply",
+    slug: "power-supply",
+    description: "SMPS units from 450W to 1200W",
+    icon: "psu",
+    productCount: 15,
+  },
+  {
+    id: "10",
+    name: "Cabinets",
+    slug: "cabinets",
+    description: "PC cases for gaming and professional builds",
+    icon: "cabinet",
+    productCount: 22,
+  },
+  {
+    id: "11",
+    name: "Laptops",
+    slug: "laptops",
+    description: "Business, gaming & ultrabook laptops",
+    icon: "laptop",
+    productCount: 30,
+  },
+  {
+    id: "12",
+    name: "Peripherals",
+    slug: "peripherals",
+    description: "Keyboards, mice, headsets & more",
+    icon: "peripheral",
+    productCount: 40,
+  },
+  {
+    id: "13",
+    name: "Networking",
+    slug: "networking",
+    description: "Routers, switches, NAS, servers & network adapters",
+    icon: "network",
+    productCount: 16,
+  },
+  {
+    id: "15",
+    name: "Switches",
+    slug: "switches",
+    description: "Managed and unmanaged network switches",
+    icon: "switch",
+    productCount: 0,
+    parentSlug: "networking",
+  },
+  {
+    id: "17",
+    name: "NAS",
+    slug: "nas",
+    description: "Network attached storage for backup and shared files",
+    icon: "nas",
+    productCount: 0,
+    parentSlug: "networking",
+  },
+  {
+    id: "16",
+    name: "Servers",
+    slug: "servers",
+    description: "Tower and rack servers for business workloads",
+    icon: "server",
+    productCount: 0,
+    parentSlug: "networking",
+  },
+  {
+    id: "14",
+    name: "Pre-built PCs",
+    slug: "prebuilt-pcs",
+    description: "Ready-to-use desktops for home and office",
+    icon: "desktop",
+    productCount: 12,
+  },
+];
+
+export function getCategoryBySlug(slug: string): Category | undefined {
+  return categories.find((c) => c.slug === slug);
+}
+
+export function getChildCategories(parentSlug: string): Category[] {
+  return categories.filter((category) => category.parentSlug === parentSlug);
+}
