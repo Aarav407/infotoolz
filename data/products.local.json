@@ -1,4 +1,1180 @@
 {
-  "products": [],
-  "deletedSlugs": []
+  "products": [
+    {
+      "id": "p61",
+      "name": "12700f Main Image",
+      "slug": "12700f-main-image",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "12700f",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine 12700f Main Image — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/12700f-main-image.jpg",
+      "tags": [
+        "processors",
+        "12700f"
+      ]
+    },
+    {
+      "id": "p102",
+      "name": "22b30hm2 Image Main",
+      "slug": "22b30hm2-image-main",
+      "category": "Monitors",
+      "categorySlug": "monitors",
+      "brand": "22b30hm2",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine 22b30hm2 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Monitors.",
+      "specs": {},
+      "image": "/images/products/22b30hm2-image-main.jpg",
+      "tags": [
+        "monitors",
+        "22b30hm2"
+      ]
+    },
+    {
+      "id": "p100",
+      "name": "22u401a B Image Main",
+      "slug": "22u401a-b-image-main",
+      "category": "Monitors",
+      "categorySlug": "monitors",
+      "brand": "22u401a",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine 22u401a B Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Monitors.",
+      "specs": {},
+      "image": "/images/products/22u401a-b-image-main.webp",
+      "tags": [
+        "monitors",
+        "22u401a"
+      ]
+    },
+    {
+      "id": "p78",
+      "name": "5g4TczcwXcdRgkrPGTzZ79EKcnY39bPia5mrqJCZ",
+      "slug": "5g4tczcwxcdrgkrpgtzz79ekcny39bpia5mrqjcz",
+      "category": "Motherboards",
+      "categorySlug": "motherboards",
+      "brand": "5g4TczcwXcdRgkrPGTzZ79EKcnY39bPia5mrqJCZ",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine 5g4TczcwXcdRgkrPGTzZ79EKcnY39bPia5mrqJCZ — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Motherboards.",
+      "specs": {},
+      "image": "/images/products/5g4tczcwxcdrgkrpgtzz79ekcny39bpia5mrqjcz.webp",
+      "tags": [
+        "motherboards",
+        "5g4tczcwxcdrgkrpgtzz79ekcny39bpia5mrqjcz"
+      ]
+    },
+    {
+      "id": "p96",
+      "name": "68c5gac4in Image Main",
+      "slug": "68c5gac4in-image-main",
+      "category": "Monitors",
+      "categorySlug": "monitors",
+      "brand": "68c5gac4in",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine 68c5gac4in Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Monitors.",
+      "specs": {},
+      "image": "/images/products/68c5gac4in-image-main.webp",
+      "tags": [
+        "monitors",
+        "68c5gac4in"
+      ]
+    },
+    {
+      "id": "p84",
+      "name": "6hZcyPJLbvwOkjcPFZwTuz3EHRxrdbbbV6FcQlhV",
+      "slug": "6hzcypjlbvwokjcpfzwtuz3ehrxrdbbbv6fcqlhv",
+      "category": "Motherboards",
+      "categorySlug": "motherboards",
+      "brand": "6hZcyPJLbvwOkjcPFZwTuz3EHRxrdbbbV6FcQlhV",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine 6hZcyPJLbvwOkjcPFZwTuz3EHRxrdbbbV6FcQlhV — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Motherboards.",
+      "specs": {},
+      "image": "/images/products/6hzcypjlbvwokjcpfzwtuz3ehrxrdbbbv6fcqlhv.jpg",
+      "tags": [
+        "motherboards",
+        "6hzcypjlbvwokjcpfzwtuz3ehrxrdbbbv6fcqlhv"
+      ]
+    },
+    {
+      "id": "p85",
+      "name": "Ad5u56008g S Image Main",
+      "slug": "ad5u56008g-s-image-main",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Ad5u56008g",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Ad5u56008g S Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/ad5u56008g-s-image-main.jpg",
+      "tags": [
+        "memory",
+        "ad5u56008g"
+      ]
+    },
+    {
+      "id": "p103",
+      "name": "Asu650ss 240gt R Image Main",
+      "slug": "asu650ss-240gt-r-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Asu650ss",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Asu650ss 240gt R Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/asu650ss-240gt-r-image-main.jpg",
+      "tags": [
+        "ssd",
+        "asu650ss"
+      ]
+    },
+    {
+      "id": "p86",
+      "name": "Ax4u320016g16a Sr30 Main",
+      "slug": "ax4u320016g16a-sr30-main",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Ax4u320016g16a",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Ax4u320016g16a Sr30 Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/ax4u320016g16a-sr30-main.webp",
+      "tags": [
+        "memory",
+        "ax4u320016g16a"
+      ]
+    },
+    {
+      "id": "p87",
+      "name": "Ax4u32008g16a Sbkd35 Image Main",
+      "slug": "ax4u32008g16a-sbkd35-image-main",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Ax4u32008g16a",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Ax4u32008g16a Sbkd35 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/ax4u32008g16a-sbkd35-image-main.jpg",
+      "tags": [
+        "memory",
+        "ax4u32008g16a"
+      ]
+    },
+    {
+      "id": "p67",
+      "name": "Bx8070110400 Image Main",
+      "slug": "bx8070110400-image-main",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "Bx8070110400",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Bx8070110400 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/bx8070110400-image-main.jpg",
+      "tags": [
+        "processors",
+        "bx8070110400"
+      ]
+    },
+    {
+      "id": "p66",
+      "name": "Bx8070110400f Image 2",
+      "slug": "bx8070110400f-image-2",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "Bx8070110400f",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Bx8070110400f Image 2 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/bx8070110400f-image-2.jpg",
+      "tags": [
+        "processors",
+        "bx8070110400f"
+      ]
+    },
+    {
+      "id": "p65",
+      "name": "Bx8071512100 Image Main",
+      "slug": "bx8071512100-image-main",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "Bx8071512100",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Bx8071512100 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/bx8071512100-image-main.jpg",
+      "tags": [
+        "processors",
+        "bx8071512100"
+      ]
+    },
+    {
+      "id": "p63",
+      "name": "Bx8071512400 Image Main",
+      "slug": "bx8071512400-image-main",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "Bx8071512400",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Bx8071512400 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/bx8071512400-image-main.jpg",
+      "tags": [
+        "processors",
+        "bx8071512400"
+      ]
+    },
+    {
+      "id": "p62",
+      "name": "Bx8071512700 Image Main",
+      "slug": "bx8071512700-image-main",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "Bx8071512700",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Bx8071512700 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/bx8071512700-image-main.jpg",
+      "tags": [
+        "processors",
+        "bx8071512700"
+      ]
+    },
+    {
+      "id": "p57",
+      "name": "Bx8071514900ks Image Main",
+      "slug": "bx8071514900ks-image-main",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "Bx8071514900ks",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Bx8071514900ks Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/bx8071514900ks-image-main.jpg",
+      "tags": [
+        "processors",
+        "bx8071514900ks"
+      ]
+    },
+    {
+      "id": "p89",
+      "name": "Cb8gs3200 Image Main",
+      "slug": "cb8gs3200-image-main",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Cb8gs3200",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Cb8gs3200 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/cb8gs3200-image-main.jpg",
+      "tags": [
+        "memory",
+        "cb8gs3200"
+      ]
+    },
+    {
+      "id": "p104",
+      "name": "Crucial E100 480gb Gen4 Ssd Image Main",
+      "slug": "crucial-e100-480gb-gen4-ssd-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Crucial",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Crucial E100 480gb Gen4 Ssd Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/crucial-e100-480gb-gen4-ssd-image-main.webp",
+      "tags": [
+        "ssd",
+        "crucial"
+      ]
+    },
+    {
+      "id": "p105",
+      "name": "Ct240bx500ssd1 Image Main",
+      "slug": "ct240bx500ssd1-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Ct240bx500ssd1",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Ct240bx500ssd1 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/ct240bx500ssd1-image-main.jpg",
+      "tags": [
+        "ssd",
+        "ct240bx500ssd1"
+      ]
+    },
+    {
+      "id": "p107",
+      "name": "Evm25 128gb Image Main",
+      "slug": "evm25-128gb-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Evm25",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Evm25 128gb Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/evm25-128gb-image-main.webp",
+      "tags": [
+        "ssd",
+        "evm25"
+      ]
+    },
+    {
+      "id": "p106",
+      "name": "Evm25 1tb Image Main0",
+      "slug": "evm25-1tb-image-main0",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Evm25",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Evm25 1tb Image Main0 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/evm25-1tb-image-main0.webp",
+      "tags": [
+        "ssd",
+        "evm25"
+      ]
+    },
+    {
+      "id": "p108",
+      "name": "Evm25 256gb Image Main",
+      "slug": "evm25-256gb-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Evm25",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Evm25 256gb Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/evm25-256gb-image-main.webp",
+      "tags": [
+        "ssd",
+        "evm25"
+      ]
+    },
+    {
+      "id": "p109",
+      "name": "Evmnv 128gb Image Main",
+      "slug": "evmnv-128gb-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Evmnv",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Evmnv 128gb Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/evmnv-128gb-image-main.webp",
+      "tags": [
+        "ssd",
+        "evmnv"
+      ]
+    },
+    {
+      "id": "p110",
+      "name": "Evmnv 256gb Image Main",
+      "slug": "evmnv-256gb-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Evmnv",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Evmnv 256gb Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/evmnv-256gb-image-main.webp",
+      "tags": [
+        "ssd",
+        "evmnv"
+      ]
+    },
+    {
+      "id": "p72",
+      "name": "G5060 8gc Image Main",
+      "slug": "g5060-8gc-image-main",
+      "category": "Graphics Cards",
+      "categorySlug": "graphics-cards",
+      "brand": "G5060",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine G5060 8gc Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Graphics Cards.",
+      "specs": {},
+      "image": "/images/products/g5060-8gc-image-main.webp",
+      "tags": [
+        "graphics-cards",
+        "g5060"
+      ]
+    },
+    {
+      "id": "p70",
+      "name": "G506t 8i2c Image",
+      "slug": "g506t-8i2c-image",
+      "category": "Graphics Cards",
+      "categorySlug": "graphics-cards",
+      "brand": "G506t",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine G506t 8i2c Image — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Graphics Cards.",
+      "specs": {},
+      "image": "/images/products/g506t-8i2c-image.webp",
+      "tags": [
+        "graphics-cards",
+        "g506t"
+      ]
+    },
+    {
+      "id": "p71",
+      "name": "G506t 8v3c Image Main",
+      "slug": "g506t-8v3c-image-main",
+      "category": "Graphics Cards",
+      "categorySlug": "graphics-cards",
+      "brand": "G506t",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine G506t 8v3c Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Graphics Cards.",
+      "specs": {},
+      "image": "/images/products/g506t-8v3c-image-main.webp",
+      "tags": [
+        "graphics-cards",
+        "g506t"
+      ]
+    },
+    {
+      "id": "p73",
+      "name": "G5090 32sps Image Main0",
+      "slug": "g5090-32sps-image-main0",
+      "category": "Graphics Cards",
+      "categorySlug": "graphics-cards",
+      "brand": "G5090",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine G5090 32sps Image Main0 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Graphics Cards.",
+      "specs": {},
+      "image": "/images/products/g5090-32sps-image-main0.webp",
+      "tags": [
+        "graphics-cards",
+        "g5090"
+      ]
+    },
+    {
+      "id": "p74",
+      "name": "Gv N506teagleoc Ice 8gd Image Main",
+      "slug": "gv-n506teagleoc-ice-8gd-image-main",
+      "category": "Graphics Cards",
+      "categorySlug": "graphics-cards",
+      "brand": "Gv",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Gv N506teagleoc Ice 8gd Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Graphics Cards.",
+      "specs": {},
+      "image": "/images/products/gv-n506teagleoc-ice-8gd-image-main.webp",
+      "tags": [
+        "graphics-cards",
+        "gv"
+      ]
+    },
+    {
+      "id": "p98",
+      "name": "Gw2790 Image Main",
+      "slug": "gw2790-image-main",
+      "category": "Monitors",
+      "categorySlug": "monitors",
+      "brand": "Gw2790",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Gw2790 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Monitors.",
+      "specs": {},
+      "image": "/images/products/gw2790-image-main.jpg",
+      "tags": [
+        "monitors",
+        "gw2790"
+      ]
+    },
+    {
+      "id": "p115",
+      "name": "Hdwt720uzsva Image Main",
+      "slug": "hdwt720uzsva-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "Hdwt720uzsva",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Hdwt720uzsva Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/hdwt720uzsva-image-main.jpg",
+      "tags": [
+        "hdd",
+        "hdwt720uzsva"
+      ]
+    },
+    {
+      "id": "p68",
+      "name": "I3 10105f Image 1",
+      "slug": "i3-10105f-image-1",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "I3",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine I3 10105f Image 1 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/i3-10105f-image-1.jpg",
+      "tags": [
+        "processors",
+        "i3"
+      ]
+    },
+    {
+      "id": "p69",
+      "name": "I5 12 Gen",
+      "slug": "i5-12-gen",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "I5",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine I5 12 Gen — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/i5-12-gen.webp",
+      "tags": [
+        "processors",
+        "i5"
+      ]
+    },
+    {
+      "id": "p58",
+      "name": "I9 14900k Image Main",
+      "slug": "i9-14900k-image-main",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "I9",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine I9 14900k Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/i9-14900k-image-main.jpg",
+      "tags": [
+        "processors",
+        "i9"
+      ]
+    },
+    {
+      "id": "p59",
+      "name": "I9 14900kf Image Main",
+      "slug": "i9-14900kf-image-main",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "I9",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine I9 14900kf Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/i9-14900kf-image-main.jpg",
+      "tags": [
+        "processors",
+        "i9"
+      ]
+    },
+    {
+      "id": "p114",
+      "name": "Images",
+      "slug": "images",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "Images",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Images — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/images.jpg",
+      "tags": [
+        "ssd",
+        "images"
+      ]
+    },
+    {
+      "id": "p64",
+      "name": "Intel 12th Gen I3 12100f Bx8071512100f Image 02",
+      "slug": "intel-12th-gen-i3-12100f-bx8071512100f-image-02",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "Intel",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Intel 12th Gen I3 12100f Bx8071512100f Image 02 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/intel-12th-gen-i3-12100f-bx8071512100f-image-02.jpg",
+      "tags": [
+        "processors",
+        "intel"
+      ]
+    },
+    {
+      "id": "p60",
+      "name": "Intel I7 12700k Image Main",
+      "slug": "intel-i7-12700k-image-main",
+      "category": "Processors",
+      "categorySlug": "processors",
+      "brand": "Intel",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Intel I7 12700k Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Processors.",
+      "specs": {},
+      "image": "/images/products/intel-i7-12700k-image-main.jpg",
+      "tags": [
+        "processors",
+        "intel"
+      ]
+    },
+    {
+      "id": "p79",
+      "name": "KNMSFAUVIQiOTjJe10U6f0BxwJP1aabYVhaadJNw",
+      "slug": "knmsfauviqiotjje10u6f0bxwjp1aabyvhaadjnw",
+      "category": "Motherboards",
+      "categorySlug": "motherboards",
+      "brand": "KNMSFAUVIQiOTjJe10U6f0BxwJP1aabYVhaadJNw",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine KNMSFAUVIQiOTjJe10U6f0BxwJP1aabYVhaadJNw — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Motherboards.",
+      "specs": {},
+      "image": "/images/products/knmsfauviqiotjje10u6f0bxwjp1aabyvhaadjnw.webp",
+      "tags": [
+        "motherboards",
+        "knmsfauviqiotjje10u6f0bxwjp1aabyvhaadjnw"
+      ]
+    },
+    {
+      "id": "p90",
+      "name": "Kvr32n22s8l 8wp Image Main",
+      "slug": "kvr32n22s8l-8wp-image-main",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Kvr32n22s8l",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Kvr32n22s8l 8wp Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/kvr32n22s8l-8wp-image-main.webp",
+      "tags": [
+        "memory",
+        "kvr32n22s8l"
+      ]
+    },
+    {
+      "id": "p95",
+      "name": "Lenovo L24i 10 Image Main",
+      "slug": "lenovo-l24i-10-image-main",
+      "category": "Monitors",
+      "categorySlug": "monitors",
+      "brand": "Lenovo",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Lenovo L24i 10 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Monitors.",
+      "specs": {},
+      "image": "/images/products/lenovo-l24i-10-image-main.webp",
+      "tags": [
+        "monitors",
+        "lenovo"
+      ]
+    },
+    {
+      "id": "p101",
+      "name": "Ls22d300gawxxl Image Main",
+      "slug": "ls22d300gawxxl-image-main",
+      "category": "Monitors",
+      "categorySlug": "monitors",
+      "brand": "Ls22d300gawxxl",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Ls22d300gawxxl Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Monitors.",
+      "specs": {},
+      "image": "/images/products/ls22d300gawxxl-image-main.webp",
+      "tags": [
+        "monitors",
+        "ls22d300gawxxl"
+      ]
+    },
+    {
+      "id": "p80",
+      "name": "N4ap4CUj6XMs2jKKzC4lm3HpHtDcAQCH6rGItYXh",
+      "slug": "n4ap4cuj6xms2jkkzc4lm3hphtdcaqch6rgityxh",
+      "category": "Motherboards",
+      "categorySlug": "motherboards",
+      "brand": "HP",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine N4ap4CUj6XMs2jKKzC4lm3HpHtDcAQCH6rGItYXh — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Motherboards.",
+      "specs": {},
+      "image": "/images/products/n4ap4cuj6xms2jkkzc4lm3hphtdcaqch6rgityxh.webp",
+      "tags": [
+        "motherboards",
+        "hp"
+      ]
+    },
+    {
+      "id": "p75",
+      "name": "N50602 08d7x 195070w Image Main",
+      "slug": "n50602-08d7x-195070w-image-main",
+      "category": "Graphics Cards",
+      "categorySlug": "graphics-cards",
+      "brand": "N50602",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine N50602 08d7x 195070w Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Graphics Cards.",
+      "specs": {},
+      "image": "/images/products/n50602-08d7x-195070w-image-main.webp",
+      "tags": [
+        "graphics-cards",
+        "n50602"
+      ]
+    },
+    {
+      "id": "p111",
+      "name": "P220s256g25 Image Main",
+      "slug": "p220s256g25-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "P220s256g25",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine P220s256g25 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/p220s256g25-image-main.webp",
+      "tags": [
+        "ssd",
+        "p220s256g25"
+      ]
+    },
+    {
+      "id": "p99",
+      "name": "Pd2706u Image Main",
+      "slug": "pd2706u-image-main",
+      "category": "Monitors",
+      "categorySlug": "monitors",
+      "brand": "Pd2706u",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Pd2706u Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Monitors.",
+      "specs": {},
+      "image": "/images/products/pd2706u-image-main.webp",
+      "tags": [
+        "monitors",
+        "pd2706u"
+      ]
+    },
+    {
+      "id": "p82",
+      "name": "Product 1",
+      "slug": "product-001",
+      "category": "Motherboards",
+      "categorySlug": "motherboards",
+      "brand": "Product",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Product 1 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Motherboards.",
+      "specs": {},
+      "image": "/images/products/product-001.jpg",
+      "tags": [
+        "motherboards",
+        "product"
+      ]
+    },
+    {
+      "id": "p91",
+      "name": "Product 2",
+      "slug": "product-002",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Product",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Product 2 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/product-002.webp",
+      "tags": [
+        "memory",
+        "product"
+      ]
+    },
+    {
+      "id": "p92",
+      "name": "Product 3",
+      "slug": "product-003",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Product",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Product 3 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/product-003.webp",
+      "tags": [
+        "memory",
+        "product"
+      ]
+    },
+    {
+      "id": "p93",
+      "name": "Product 4",
+      "slug": "product-004",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Product",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Product 4 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/product-004.jpg",
+      "tags": [
+        "memory",
+        "product"
+      ]
+    },
+    {
+      "id": "p94",
+      "name": "Product 5",
+      "slug": "product-005",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Product",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Product 5 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/product-005.jpg",
+      "tags": [
+        "memory",
+        "product"
+      ]
+    },
+    {
+      "id": "p97",
+      "name": "Se2726d Image 01",
+      "slug": "se2726d-image-01",
+      "category": "Monitors",
+      "categorySlug": "monitors",
+      "brand": "Se2726d",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Se2726d Image 01 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Monitors.",
+      "specs": {},
+      "image": "/images/products/se2726d-image-01.webp",
+      "tags": [
+        "monitors",
+        "se2726d"
+      ]
+    },
+    {
+      "id": "p116",
+      "name": "Seagate Barracuda 2tb Desktop Hdd Image Main",
+      "slug": "seagate-barracuda-2tb-desktop-hdd-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "Seagate",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Seagate Barracuda 2tb Desktop Hdd Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/seagate-barracuda-2tb-desktop-hdd-image-main.webp",
+      "tags": [
+        "hdd",
+        "seagate"
+      ]
+    },
+    {
+      "id": "p117",
+      "name": "Seagate Expansion 1tb External Hard Drive Stkm1000400 Image Main",
+      "slug": "seagate-expansion-1tb-external-hard-drive-stkm1000400-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "Seagate",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Seagate Expansion 1tb External Hard Drive Stkm1000400 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/seagate-expansion-1tb-external-hard-drive-stkm1000400-image-main.jpg",
+      "tags": [
+        "hdd",
+        "seagate"
+      ]
+    },
+    {
+      "id": "p118",
+      "name": "Seagate Ironwolf 4tb Nas Hard Disk Image Main",
+      "slug": "seagate-ironwolf-4tb-nas-hard-disk-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "Seagate",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Seagate Ironwolf 4tb Nas Hard Disk Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/seagate-ironwolf-4tb-nas-hard-disk-image-main.webp",
+      "tags": [
+        "hdd",
+        "seagate"
+      ]
+    },
+    {
+      "id": "p83",
+      "name": "SkQn8zhHKI0ea21FWMqN0PK7yQnwIy9LqT5p6vNT",
+      "slug": "skqn8zhhki0ea21fwmqn0pk7yqnwiy9lqt5p6vnt",
+      "category": "Motherboards",
+      "categorySlug": "motherboards",
+      "brand": "SkQn8zhHKI0ea21FWMqN0PK7yQnwIy9LqT5p6vNT",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine SkQn8zhHKI0ea21FWMqN0PK7yQnwIy9LqT5p6vNT — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Motherboards.",
+      "specs": {},
+      "image": "/images/products/skqn8zhhki0ea21fwmqn0pk7yqnwiy9lqt5p6vnt.jpg",
+      "tags": [
+        "motherboards",
+        "skqn8zhhki0ea21fwmqn0pk7yqnwiy9lqt5p6vnt"
+      ]
+    },
+    {
+      "id": "p81",
+      "name": "SkQn8zhHKI0ea21FWMqN0PK7yQnwIy9LqT5p6vNT (1)",
+      "slug": "skqn8zhhki0ea21fwmqn0pk7yqnwiy9lqt5p6vnt-1",
+      "category": "Motherboards",
+      "categorySlug": "motherboards",
+      "brand": "SkQn8zhHKI0ea21FWMqN0PK7yQnwIy9LqT5p6vNT",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine SkQn8zhHKI0ea21FWMqN0PK7yQnwIy9LqT5p6vNT (1) — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Motherboards.",
+      "specs": {},
+      "image": "/images/products/skqn8zhhki0ea21fwmqn0pk7yqnwiy9lqt5p6vnt-1.jpg",
+      "tags": [
+        "motherboards",
+        "skqn8zhhki0ea21fwmqn0pk7yqnwiy9lqt5p6vnt"
+      ]
+    },
+    {
+      "id": "p119",
+      "name": "Skyhawk 2tb Hard Disk Image Main",
+      "slug": "skyhawk-2tb-hard-disk-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "Skyhawk",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Skyhawk 2tb Hard Disk Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/skyhawk-2tb-hard-disk-image-main.webp",
+      "tags": [
+        "hdd",
+        "skyhawk"
+      ]
+    },
+    {
+      "id": "p88",
+      "name": "Tf4d48g3200hc16f01 Image Main",
+      "slug": "tf4d48g3200hc16f01-image-main",
+      "category": "Memory (RAM)",
+      "categorySlug": "memory",
+      "brand": "Tf4d48g3200hc16f01",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Tf4d48g3200hc16f01 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Memory (RAM).",
+      "specs": {},
+      "image": "/images/products/tf4d48g3200hc16f01-image-main.jpg",
+      "tags": [
+        "memory",
+        "tf4d48g3200hc16f01"
+      ]
+    },
+    {
+      "id": "p120",
+      "name": "Wd11purz Image Main",
+      "slug": "wd11purz-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "WD",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Wd11purz Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/wd11purz-image-main.jpg",
+      "tags": [
+        "hdd",
+        "wd"
+      ]
+    },
+    {
+      "id": "p121",
+      "name": "Wd20ezbx Image Main",
+      "slug": "wd20ezbx-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "WD",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Wd20ezbx Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/wd20ezbx-image-main.jpg",
+      "tags": [
+        "hdd",
+        "wd"
+      ]
+    },
+    {
+      "id": "p122",
+      "name": "Wd40efzz Image Main",
+      "slug": "wd40efzz-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "WD",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Wd40efzz Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/wd40efzz-image-main.webp",
+      "tags": [
+        "hdd",
+        "wd"
+      ]
+    },
+    {
+      "id": "p123",
+      "name": "Wdbhhg0010bbk Eesn Image Main",
+      "slug": "wdbhhg0010bbk-eesn-image-main",
+      "category": "HDD",
+      "categorySlug": "hdd",
+      "brand": "WD",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Wdbhhg0010bbk Eesn Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: HDD.",
+      "specs": {},
+      "image": "/images/products/wdbhhg0010bbk-eesn-image-main.webp",
+      "tags": [
+        "hdd",
+        "wd"
+      ]
+    },
+    {
+      "id": "p124",
+      "name": "Wds250g5g0a 00cpt0 Image Main",
+      "slug": "wds250g5g0a-00cpt0-image-main",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "WD",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Wds250g5g0a 00cpt0 Image Main — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/wds250g5g0a-00cpt0-image-main.webp",
+      "tags": [
+        "ssd",
+        "wd"
+      ]
+    },
+    {
+      "id": "p113",
+      "name": "Wds500g4x0e Image",
+      "slug": "wds500g4x0e-image",
+      "category": "SSD",
+      "categorySlug": "ssd",
+      "brand": "WD",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Wds500g4x0e Image — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: SSD.",
+      "specs": {},
+      "image": "/images/products/wds500g4x0e-image.webp",
+      "tags": [
+        "ssd",
+        "wd"
+      ]
+    },
+    {
+      "id": "p76",
+      "name": "Zt B50900d 10p Image Main0",
+      "slug": "zt-b50900d-10p-image-main0",
+      "category": "Graphics Cards",
+      "categorySlug": "graphics-cards",
+      "brand": "Zt",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Zt B50900d 10p Image Main0 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Graphics Cards.",
+      "specs": {},
+      "image": "/images/products/zt-b50900d-10p-image-main0.webp",
+      "tags": [
+        "graphics-cards",
+        "zt"
+      ]
+    },
+    {
+      "id": "p77",
+      "name": "Zt B50900j 10p Image Main0",
+      "slug": "zt-b50900j-10p-image-main0",
+      "category": "Graphics Cards",
+      "categorySlug": "graphics-cards",
+      "brand": "Zt",
+      "inStock": true,
+      "featured": false,
+      "description": "Genuine Zt B50900j 10p Image Main0 — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: Graphics Cards.",
+      "specs": {},
+      "image": "/images/products/zt-b50900j-10p-image-main0.webp",
+      "tags": [
+        "graphics-cards",
+        "zt"
+      ]
+    }
+  ],
+  "deletedSlugs": [
+    "2-2synology-ds3622xs-12-bay-high-performance-nas-with-intel-xeon-processor",
+    "amd-rx-7800-xt",
+    "amd-ryzen-9-7900x",
+    "asus-rog-strix-b650e-f",
+    "asus-rog-strix-g16",
+    "cooler-master-mwe-750w",
+    "corsair-rm850x-850w",
+    "corsair-vengeance-ddr5-32gb",
+    "dell-p2723qe-27-4k",
+    "dell-poweredge-t350",
+    "gigabyte-aorus-27-240hz",
+    "gskill-trident-z5-64gb",
+    "infotoolz-gaming-pro-pc",
+    "intel-core-i3-10th-gen",
+    "intel-core-i3-12th-gen",
+    "intel-core-i5-10th-gen",
+    "intel-core-i5-12th-gen",
+    "intel-core-i5-14400f",
+    "intel-core-i7-12th-gen",
+    "intel-core-i7-12th-gen-unlocked",
+    "intel-core-i7-14700k",
+    "intel-core-i9-14th-gen-unlocked",
+    "keychron-q1-pro",
+    "lenovo-thinkpad-e14-gen5",
+    "lg-ultragear-27gp850",
+    "lian-li-o11-dynamic-evo",
+    "logitech-g-pro-x-superlight-2",
+    "msi-mag-b760-tomahawk",
+    "nvidia-rtx-4070-super",
+    "nzxt-h7-flow-rgb",
+    "samsung-990-pro-2tb",
+    "synology-ds224-plus",
+    "tp-link-archer-ax73",
+    "tp-link-tl-sg108",
+    "wd-black-sn850x-1tb"
+  ]
 }
