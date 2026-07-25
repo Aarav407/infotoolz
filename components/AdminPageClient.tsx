@@ -354,6 +354,11 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
               <CheckCircle className="h-5 w-5" />
               {results.length} photo{results.length !== 1 ? "s" : ""} added to the catalog!
             </div>
+            <p className="mb-3 text-sm text-green-800">
+              To keep these forever on the hosted website, run{" "}
+              <code className="rounded bg-white/80 px-1">npm run publish-uploads</code>, then
+              commit + push.
+            </p>
             <ul className="space-y-2 text-sm text-green-800">
               {results.map((r) => (
                 <li key={r.slug}>
@@ -379,15 +384,34 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
         )}
       </div>
 
-      <div className="mt-6 rounded-xl bg-amber-50 border border-amber-200 p-4 text-sm text-amber-900 space-y-3">
-        <p>
-          <strong>Note:</strong> Uploads are saved on this computer only. They now stay in
-          a local file so <code className="text-xs">git pull</code> will not wipe them.
+      <div className="mt-6 rounded-xl border border-[#00AFB9]/25 bg-[#00AFB9]/5 p-4 text-sm text-slate-800 space-y-3">
+        <p className="font-semibold text-slate-900">Keep uploads forever on the main website</p>
+        <ol className="list-decimal pl-5 space-y-1 text-slate-700">
+          <li>Upload photos here (they appear on the site immediately on this computer).</li>
+          <li>
+            In terminal run:{" "}
+            <code className="rounded bg-white px-1.5 py-0.5 text-xs">npm run publish-uploads</code>
+          </li>
+          <li>
+            Then:{" "}
+            <code className="rounded bg-white px-1.5 py-0.5 text-xs">
+              git commit -m &quot;Add uploaded products&quot;
+            </code>{" "}
+            and <code className="rounded bg-white px-1.5 py-0.5 text-xs">git push</code>
+          </li>
+          <li>Redeploy / restart the hosted website so visitors see the new products.</li>
+        </ol>
+        <p className="text-slate-600">
+          Uploads stay until you delete them in Admin and publish again. Do product uploads on
+          this computer, then push — that is how they stay on hosting.
         </p>
+      </div>
+
+      <div className="mt-4 rounded-xl bg-amber-50 border border-amber-200 p-4 text-sm text-amber-900 space-y-3">
         <p>
-          If photos disappeared after a pull/reset, try restore below (only works if the
+          If photos disappeared after an old pull/reset, try restore below (only works if the
           image files are still in <code className="text-xs">public/images/products</code>).
-          Otherwise upload again.
+          Otherwise upload again, then publish-uploads + push.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
           <div className="flex-1">

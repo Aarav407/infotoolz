@@ -221,7 +221,7 @@ function saveProducts(products: Product[]) {
   writeLocalCatalog({ products: localProducts, deletedSlugs });
 }
 
-/** Live catalog used by the website and admin (seed + local uploads). */
+/** Live catalog used by the website and admin (seed + uploaded products). */
 export function loadCatalogProducts(): Product[] {
   return loadProducts();
 }

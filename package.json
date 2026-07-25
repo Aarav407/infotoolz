@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "import:products": "node scripts/import-product-photos.mjs",
+    "publish-uploads": "node scripts/publish-uploads.mjs",
     "lint": "eslint"
   },
   "dependencies": {
