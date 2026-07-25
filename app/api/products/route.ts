@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { deleteProduct, getEditableProducts, updateProductName } from "@/lib/import-product";
+import {
+  deleteProduct,
+  getEditableProducts,
+  restoreProductsFromPhotos,
+  updateProductName,
+} from "@/lib/import-product";
 
 export const runtime = "nodejs";
 
@@ -12,6 +17,32 @@ export async function GET() {
       { error: "Could not load products." },
       { status: 500 }
     );
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const action = typeof body.action === "string" ? body.action : "";
+    const categorySlug =
+      typeof body.categorySlug === "string" ? body.categorySlug : undefined;
+
+    if (action !== "restore") {
+      return NextResponse.json(
+        { error: "Unsupported action." },
+        { status: 400 }
+      );
+    }
+
+    const result = restoreProductsFromPhotos({ categorySlug });
+    return NextResponse.json({
+      ...result,
+      productsList: getEditableProducts(),
+    });
+  } catch (error) {
+    console.error("Product restore error:", error);
+    const message = error instanceof Error ? error.message : "Could not restore products.";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
 

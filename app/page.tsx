@@ -1,9 +1,11 @@
 import { Hero } from "@/components/Hero";
 import { InteractivePcViewer } from "@/components/InteractivePcViewer";
 import { SectionHeader, ProductGrid, CategoryGrid } from "@/components/Sections";
-import { getFeaturedProducts, getCategoriesWithCounts } from "@/data/products";
+import { getFeaturedProducts, getCategoriesWithCounts } from "@/data/catalog";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+
+export const dynamic = "force-dynamic";
 
 export default function HomePage() {
   const featuredProducts = getFeaturedProducts();

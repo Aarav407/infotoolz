@@ -2,9 +2,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductGrid, SectionHeader } from "@/components/Sections";
 import { getCategoryBySlug, categories, getChildCategories } from "@/data/categories";
-import { getAllCategoriesWithCounts, getProductsByCategory } from "@/data/products";
+import { getAllCategoriesWithCounts, getProductsByCategory } from "@/data/catalog";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;

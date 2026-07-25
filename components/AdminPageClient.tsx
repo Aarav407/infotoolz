@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Upload, CheckCircle, ArrowLeft, ImageIcon, Save, Trash2, Sparkles } from "lucide-react";
+import { Upload, CheckCircle, ArrowLeft, ImageIcon, Save, Trash2, Sparkles, RefreshCw } from "lucide-react";
 import { categories, getChildCategories } from "@/data/categories";
 
 export interface EditableProduct {
@@ -22,9 +22,11 @@ const topLevelCategories = categories.filter((category) => !category.parentSlug)
 
 export default function AdminPageClient({ initialProducts }: AdminPageClientProps) {
   const [uploading, setUploading] = useState(false);
+  const [restoring, setRestoring] = useState(false);
   const [results, setResults] = useState<EditableProduct[]>([]);
   const [error, setError] = useState("");
   const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
+  const [restoreCategorySlug, setRestoreCategorySlug] = useState("processors");
   const [products, setProducts] = useState<EditableProduct[]>(initialProducts);
   const [draftNames, setDraftNames] = useState<Record<string, string>>(
     Object.fromEntries(initialProducts.map((product) => [product.slug, product.name]))
@@ -130,6 +132,50 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
       );
     } finally {
       busySetter("");
+    }
+  }
+
+  async function handleRestoreFromPhotos() {
+    setRestoring(true);
+    setEditMessage("");
+    setError("");
+
+    try {
+      const res = await fetch("/api/products", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "restore",
+          categorySlug: restoreCategorySlug,
+        }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Could not restore products from photos.");
+        return;
+      }
+
+      const loadedProducts: EditableProduct[] = data.productsList || [];
+      setProducts(loadedProducts);
+      setDraftNames(
+        Object.fromEntries(loadedProducts.map((product) => [product.slug, product.name]))
+      );
+      setResults(data.products || []);
+
+      if (data.restoredCount > 0) {
+        setEditMessage(
+          `Restored ${data.restoredCount} product photo${data.restoredCount === 1 ? "" : "s"} into the catalog.`
+        );
+      } else {
+        setEditMessage(
+          "No missing photos found. If uploads are gone, choose the category and upload them again."
+        );
+      }
+    } catch {
+      setError("Could not restore products. Make sure the local dev server is running.");
+    } finally {
+      setRestoring(false);
     }
   }
 
@@ -333,9 +379,52 @@ export default function AdminPageClient({ initialProducts }: AdminPageClientProp
         )}
       </div>
 
-      <div className="mt-6 rounded-xl bg-amber-50 border border-amber-200 p-4 text-sm text-amber-900">
-        <strong>Note:</strong> Photos sent in chat are not saved automatically. Use this
-        page to upload your actual product images - they will appear on the website immediately.
+      <div className="mt-6 rounded-xl bg-amber-50 border border-amber-200 p-4 text-sm text-amber-900 space-y-3">
+        <p>
+          <strong>Note:</strong> Uploads are saved on this computer only. They now stay in
+          a local file so <code className="text-xs">git pull</code> will not wipe them.
+        </p>
+        <p>
+          If photos disappeared after a pull/reset, try restore below (only works if the
+          image files are still in <code className="text-xs">public/images/products</code>).
+          Otherwise upload again.
+        </p>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
+          <div className="flex-1">
+            <label htmlFor="restoreCategorySlug" className="block text-xs font-semibold mb-1">
+              Restore missing photos into category
+            </label>
+            <select
+              id="restoreCategorySlug"
+              value={restoreCategorySlug}
+              onChange={(event) => setRestoreCategorySlug(event.target.value)}
+              className="w-full rounded-lg border border-amber-300 bg-white px-3 py-2 text-sm text-slate-900"
+            >
+              {topLevelCategories.map((category) => {
+                const childCategories = getChildCategories(category.slug);
+                return (
+                  <optgroup key={category.slug} label={category.name}>
+                    <option value={category.slug}>{category.name}</option>
+                    {childCategories.map((childCategory) => (
+                      <option key={childCategory.slug} value={childCategory.slug}>
+                        {childCategory.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                );
+              })}
+            </select>
+          </div>
+          <button
+            type="button"
+            onClick={handleRestoreFromPhotos}
+            disabled={restoring}
+            className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-amber-800 px-4 py-2.5 text-xs font-semibold text-white hover:bg-amber-900 disabled:opacity-50"
+          >
+            <RefreshCw className={`h-3.5 w-3.5 ${restoring ? "animate-spin" : ""}`} />
+            {restoring ? "Restoring..." : "Restore from photos folder"}
+          </button>
+        </div>
       </div>
 
       <div id="edit-product-names" className="scroll-mt-24 mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

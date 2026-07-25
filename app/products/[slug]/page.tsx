@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProductBySlug, products } from "@/data/products";
+import { getProductBySlug, getProducts } from "@/data/catalog";
+import { products } from "@/data/products";
 import { ArrowLeft, CheckCircle, XCircle, Mail, Phone, MessageCircle } from "lucide-react";
 import { company } from "@/data/company";
 import type { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -32,7 +35,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   if (!product) notFound();
 
-  const related = products
+  const related = getProducts()
     .filter((p) => p.categorySlug === product.categorySlug && p.id !== product.id)
     .slice(0, 4);
 

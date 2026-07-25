@@ -1,8 +1,10 @@
 import { Suspense } from "react";
 import { ProductGrid, SectionHeader } from "@/components/Sections";
-import { products, searchProducts } from "@/data/products";
+import { getProducts, searchProducts } from "@/data/catalog";
 import { ProductFilters } from "@/components/ProductFilters";
 import type { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "All Products",
@@ -19,7 +21,8 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   const categoryFilter = params.category ?? "";
   const brandFilter = params.brand ?? "";
 
-  let filtered = query ? searchProducts(query) : [...products];
+  const allProducts = getProducts();
+  let filtered = query ? searchProducts(query) : [...allProducts];
 
   if (categoryFilter) {
     filtered = filtered.filter((p) => p.categorySlug === categoryFilter);
@@ -31,7 +34,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
     );
   }
 
-  const brands = [...new Set(products.map((p) => p.brand))].sort();
+  const brands = [...new Set(allProducts.map((p) => p.brand))].sort();
 
   return (
     <div className="px-4 py-8">

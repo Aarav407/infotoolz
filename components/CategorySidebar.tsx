@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getAllCategoriesWithCounts, getCategoriesWithCounts } from "@/data/products";
+import { Category } from "@/types/product";
 import { getChildCategories } from "@/data/categories";
 import { categoryIconMap, allProductsIcon } from "@/lib/category-icons";
 import { cn } from "@/lib/utils";
@@ -39,10 +39,16 @@ function CategoryLink({
   );
 }
 
-function CategoryNav({ className = "" }: { className?: string }) {
+function CategoryNav({
+  categories,
+  allCategories,
+  className = "",
+}: {
+  categories: Category[];
+  allCategories: Category[];
+  className?: string;
+}) {
   const pathname = usePathname();
-  const categories = getCategoriesWithCounts();
-  const allCategories = getAllCategoriesWithCounts();
 
   return (
     <nav className={className}>
@@ -110,24 +116,27 @@ function CategoryNav({ className = "" }: { className?: string }) {
   );
 }
 
-export function CategorySidebar() {
+interface CategorySidebarProps {
+  categories: Category[];
+  allCategories: Category[];
+}
+
+export function CategorySidebar({ categories, allCategories }: CategorySidebarProps) {
   return (
     <>
-      {/* Mobile: collapsible category list */}
       <details className="lg:hidden border-b border-slate-200 bg-white">
         <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-semibold text-slate-900 list-none">
           Browse Categories
           <span className="text-xs font-normal text-slate-500">Tap to expand</span>
         </summary>
         <div className="px-2 pb-3 max-h-64 overflow-y-auto">
-          <CategoryNav />
+          <CategoryNav categories={categories} allCategories={allCategories} />
         </div>
       </details>
 
-      {/* Desktop: left sidebar */}
       <aside className="hidden lg:block w-56 xl:w-60 shrink-0 border-r border-slate-200 bg-white">
         <div className="sticky top-36 py-6 px-2 max-h-[calc(100vh-9rem)] overflow-y-auto">
-          <CategoryNav />
+          <CategoryNav categories={categories} allCategories={allCategories} />
         </div>
       </aside>
     </>

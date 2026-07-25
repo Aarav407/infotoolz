@@ -5,6 +5,12 @@ import { lookupProductFromName } from "@/lib/product-specs";
 
 const PRODUCTS_DIR = path.join(process.cwd(), "public/images/products");
 const PRODUCTS_JSON = path.join(process.cwd(), "data/products.json");
+const LOCAL_PRODUCTS_JSON = path.join(process.cwd(), "data/products.local.json");
+
+type LocalCatalog = {
+  products: Product[];
+  deletedSlugs: string[];
+};
 
 const CATEGORIES = [
   { slug: "processors", name: "Processors", keywords: ["processor", "cpu", "ryzen", "core i3", "core i5", "core i7", "core i9", "xeon"] },
@@ -33,6 +39,8 @@ const BRANDS = [
   "HP", "Acer", "Apple", "BenQ", "Crucial", "Kingston", "Seagate", "HPE", "Cisco",
   "Synology", "QNAP",
 ];
+
+const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp"]);
 
 export function slugify(name: string): string {
   return name
@@ -117,26 +125,115 @@ function buildDescription(name: string, category: string): string {
   return `Genuine ${name} — available from Infotoolz. Contact us for availability, bulk orders, and expert advice. Category: ${category}.`;
 }
 
-function loadProducts() {
+function readSeedProducts(): Product[] {
   if (!fs.existsSync(PRODUCTS_JSON)) return [];
-  return JSON.parse(fs.readFileSync(PRODUCTS_JSON, "utf8"));
+  return JSON.parse(fs.readFileSync(PRODUCTS_JSON, "utf8")) as Product[];
 }
 
-function saveProducts(products: unknown[]) {
-  fs.writeFileSync(PRODUCTS_JSON, JSON.stringify(products, null, 2));
+function readLocalCatalog(): LocalCatalog {
+  if (!fs.existsSync(LOCAL_PRODUCTS_JSON)) {
+    return { products: [], deletedSlugs: [] };
+  }
+
+  try {
+    const raw = JSON.parse(fs.readFileSync(LOCAL_PRODUCTS_JSON, "utf8"));
+    if (Array.isArray(raw)) {
+      return { products: raw as Product[], deletedSlugs: [] };
+    }
+    return {
+      products: Array.isArray(raw.products) ? (raw.products as Product[]) : [],
+      deletedSlugs: Array.isArray(raw.deletedSlugs) ? (raw.deletedSlugs as string[]) : [],
+    };
+  } catch {
+    return { products: [], deletedSlugs: [] };
+  }
+}
+
+function writeLocalCatalog(local: LocalCatalog) {
+  fs.mkdirSync(path.dirname(LOCAL_PRODUCTS_JSON), { recursive: true });
+  fs.writeFileSync(
+    LOCAL_PRODUCTS_JSON,
+    JSON.stringify(
+      {
+        products: local.products.sort((a, b) => a.name.localeCompare(b.name)),
+        deletedSlugs: [...new Set(local.deletedSlugs)].sort(),
+      },
+      null,
+      2
+    ) + "\n"
+  );
+}
+
+function stableProduct(product: Product) {
+  return JSON.stringify({
+    id: product.id,
+    name: product.name,
+    slug: product.slug,
+    category: product.category,
+    categorySlug: product.categorySlug,
+    brand: product.brand,
+    price: product.price ?? null,
+    mrp: product.mrp ?? null,
+    inStock: product.inStock,
+    description: product.description,
+    specs: product.specs ?? {},
+    image: product.image,
+    featured: Boolean(product.featured),
+    tags: product.tags ?? [],
+  });
+}
+
+function loadProducts(): Product[] {
+  const seed = readSeedProducts();
+  const local = readLocalCatalog();
+  const deleted = new Set(local.deletedSlugs);
+  const bySlug = new Map<string, Product>();
+
+  for (const product of seed) {
+    if (!deleted.has(product.slug)) {
+      bySlug.set(product.slug, product);
+    }
+  }
+
+  for (const product of local.products) {
+    if (!deleted.has(product.slug)) {
+      bySlug.set(product.slug, product);
+    }
+  }
+
+  return Array.from(bySlug.values()).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function saveProducts(products: Product[]) {
+  const seed = readSeedProducts();
+  const seedBySlug = new Map(seed.map((product) => [product.slug, product]));
+  const nextSlugs = new Set(products.map((product) => product.slug));
+
+  const deletedSlugs = seed
+    .map((product) => product.slug)
+    .filter((slug) => !nextSlugs.has(slug));
+
+  const localProducts = products.filter((product) => {
+    const seedProduct = seedBySlug.get(product.slug);
+    return !seedProduct || stableProduct(seedProduct) !== stableProduct(product);
+  });
+
+  writeLocalCatalog({ products: localProducts, deletedSlugs });
+}
+
+/** Live catalog used by the website and admin (seed + local uploads). */
+export function loadCatalogProducts(): Product[] {
+  return loadProducts();
 }
 
 export function getEditableProducts() {
-  const products = loadProducts() as Product[];
-  return products
-    .map((product) => ({
-      name: product.name,
-      slug: product.slug,
-      category: product.category,
-      categorySlug: product.categorySlug,
-      image: product.image,
-    }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+  return loadProducts().map((product) => ({
+    name: product.name,
+    slug: product.slug,
+    category: product.category,
+    categorySlug: product.categorySlug,
+    image: product.image,
+  }));
 }
 
 export function updateProductName(
@@ -149,7 +246,7 @@ export function updateProductName(
     throw new Error("Product name is required");
   }
 
-  const products = loadProducts() as Product[];
+  const products = loadProducts();
   const index = products.findIndex((product) => product.slug === slug);
 
   if (index === -1) {
@@ -209,7 +306,7 @@ export function deleteProduct(slug: string) {
     throw new Error("Product is required");
   }
 
-  const products = loadProducts() as Product[];
+  const products = loadProducts();
   const product = products.find((item) => item.slug === slug);
 
   if (!product) {
@@ -237,6 +334,64 @@ export function deleteProduct(slug: string) {
   };
 }
 
+function nextProductId(existing: Product[]): string {
+  const idNums = existing
+    .map((p) => parseInt(p.id.replace(/\D/g, ""), 10))
+    .filter((n) => !isNaN(n));
+  return `p${(idNums.length ? Math.max(...idNums) : 0) + 1}`;
+}
+
+function buildProductFromImageFile(
+  filename: string,
+  existing: Product[],
+  options: { categorySlug?: string; keepFilename?: boolean } = {}
+): Product {
+  const ext = path.extname(filename).toLowerCase() || ".png";
+  const base = path.basename(filename, ext);
+  const generic = isGenericFilename(filename) || /^product-\d+$/i.test(base);
+
+  let slug: string;
+  let name: string;
+
+  if (options.keepFilename) {
+    slug = slugify(base) || `product-${String(nextAutoProductNumber(existing)).padStart(3, "0")}`;
+    if (/^product-\d+$/i.test(base)) {
+      slug = base.toLowerCase();
+      name = `Product ${parseInt(base.replace(/\D/g, ""), 10)}`;
+    } else if (generic) {
+      slug = `product-${String(nextAutoProductNumber(existing)).padStart(3, "0")}`;
+      name = `Product ${parseInt(slug.replace(/\D/g, ""), 10)}`;
+    } else {
+      name = titleCaseFromFilename(filename);
+    }
+  } else if (generic) {
+    slug = `product-${String(nextAutoProductNumber(existing)).padStart(3, "0")}`;
+    name = `Product ${parseInt(slug.replace(/\D/g, ""), 10)}`;
+  } else {
+    slug = slugify(filename);
+    name = titleCaseFromFilename(filename);
+  }
+
+  const brand = detectBrand(name);
+  const category = getCategoryBySlug(options.categorySlug) ?? detectCategory(name);
+  const imagePath = `/images/products/${path.basename(filename)}`;
+
+  return {
+    id: nextProductId(existing),
+    name,
+    slug,
+    category: category.name,
+    categorySlug: category.slug,
+    brand,
+    inStock: true,
+    featured: false,
+    description: buildDescription(name, category.name),
+    specs: {},
+    image: imagePath,
+    tags: [category.slug, brand.toLowerCase()],
+  };
+}
+
 export function importProductFromFile(
   filename: string,
   buffer: Buffer,
@@ -244,7 +399,7 @@ export function importProductFromFile(
 ) {
   fs.mkdirSync(PRODUCTS_DIR, { recursive: true });
 
-  const existing = loadProducts() as Product[];
+  const existing = loadProducts();
   const ext = path.extname(filename).toLowerCase() || ".png";
   const generic = isGenericFilename(filename);
 
@@ -263,13 +418,8 @@ export function importProductFromFile(
   const bySlug = new Map<string, Product>(existing.map((p) => [p.slug, p]));
   const prev = generic ? undefined : bySlug.get(slug);
 
-  const idNums = existing
-    .map((p) => parseInt(p.id.replace(/\D/g, ""), 10))
-    .filter((n) => !isNaN(n));
-  const nextId = `p${(idNums.length ? Math.max(...idNums) : 0) + 1}`;
-
   const product: Product = {
-    id: prev?.id ?? nextId,
+    id: prev?.id ?? nextProductId(existing),
     name,
     slug,
     category: category.name,
@@ -290,4 +440,65 @@ export function importProductFromFile(
   saveProducts(merged);
 
   return { name, slug, image: imagePath, category: category.name, categorySlug: category.slug };
+}
+
+/**
+ * Re-add product photos that still exist on disk but are missing from the catalog
+ * (common after git pull/reset wiped products.json changes).
+ */
+export function restoreProductsFromPhotos(options: { categorySlug?: string } = {}) {
+  fs.mkdirSync(PRODUCTS_DIR, { recursive: true });
+
+  const existing = loadProducts();
+  const knownImages = new Set(
+    existing.map((product) => path.basename(product.image).toLowerCase())
+  );
+  const knownSlugs = new Set(existing.map((product) => product.slug));
+
+  const files = fs
+    .readdirSync(PRODUCTS_DIR)
+    .filter((file) => IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase()))
+    .sort((a, b) => a.localeCompare(b));
+
+  const restored = [];
+  const working = [...existing];
+
+  for (const file of files) {
+    if (knownImages.has(file.toLowerCase())) continue;
+
+    const baseSlug = slugify(file);
+    if (knownSlugs.has(baseSlug) || knownSlugs.has(file.replace(/\.[^.]+$/, "").toLowerCase())) {
+      continue;
+    }
+
+    const product = buildProductFromImageFile(file, working, {
+      categorySlug: options.categorySlug,
+      keepFilename: true,
+    });
+
+    // Avoid slug collisions if restore invents product-00N
+    if (knownSlugs.has(product.slug)) {
+      product.slug = `${product.slug}-restored`;
+    }
+
+    working.push(product);
+    knownSlugs.add(product.slug);
+    knownImages.add(file.toLowerCase());
+    restored.push({
+      name: product.name,
+      slug: product.slug,
+      image: product.image,
+      category: product.category,
+      categorySlug: product.categorySlug,
+    });
+  }
+
+  if (restored.length > 0) {
+    saveProducts(working.sort((a, b) => a.name.localeCompare(b.name)));
+  }
+
+  return {
+    restoredCount: restored.length,
+    products: restored,
+  };
 }

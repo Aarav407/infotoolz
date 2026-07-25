@@ -1,28 +1,38 @@
-import seedCatalog from "./products.json";
+import "server-only";
+
 import { Product } from "@/types/product";
 import { categories, getChildCategories } from "./categories";
+import { loadCatalogProducts } from "@/lib/import-product";
+import { products as seedProducts } from "./products";
 
-/** Seed catalog (safe for client + generateStaticParams). */
-export const products: Product[] = seedCatalog as unknown as Product[];
+/** Live catalog: seed demo products + local admin uploads. Server-only. */
+export function getProducts(): Product[] {
+  try {
+    return loadCatalogProducts();
+  } catch {
+    return seedProducts;
+  }
+}
 
 export function getProductBySlug(slug: string): Product | undefined {
-  return products.find((p) => p.slug === slug);
+  return getProducts().find((p) => p.slug === slug);
 }
 
 export function getProductsByCategory(categorySlug: string): Product[] {
   const childSlugs = getChildCategories(categorySlug).map((category) => category.slug);
   const categorySlugs = [categorySlug, ...childSlugs];
-  return products.filter((p) => categorySlugs.includes(p.categorySlug));
+  return getProducts().filter((p) => categorySlugs.includes(p.categorySlug));
 }
 
 export function getFeaturedProducts(): Product[] {
-  return products.filter((p) => p.featured);
+  return getProducts().filter((p) => p.featured);
 }
 
 export function searchProducts(query: string): Product[] {
   const q = query.toLowerCase().trim();
-  if (!q) return products;
-  return products.filter(
+  const all = getProducts();
+  if (!q) return all;
+  return all.filter(
     (p) =>
       p.name.toLowerCase().includes(q) ||
       p.brand.toLowerCase().includes(q) ||
@@ -32,6 +42,7 @@ export function searchProducts(query: string): Product[] {
 }
 
 export function getCategoriesWithCounts() {
+  const all = getProducts();
   return categories
     .filter((cat) => !cat.parentSlug)
     .map((cat) => {
@@ -40,31 +51,15 @@ export function getCategoriesWithCounts() {
 
       return {
         ...cat,
-        productCount: products.filter((p) => categorySlugs.includes(p.categorySlug)).length,
+        productCount: all.filter((p) => categorySlugs.includes(p.categorySlug)).length,
       };
     });
 }
 
 export function getAllCategoriesWithCounts() {
+  const all = getProducts();
   return categories.map((cat) => ({
     ...cat,
-    productCount: products.filter((p) => p.categorySlug === cat.slug).length,
+    productCount: all.filter((p) => p.categorySlug === cat.slug).length,
   }));
-}
-
-export function hasPricing(product: Product): boolean {
-  return product.price != null && product.price > 0;
-}
-
-export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(price);
-}
-
-export function getDiscountPercent(price: number, mrp: number): number {
-  if (!mrp || mrp <= price) return 0;
-  return Math.round(((mrp - price) / mrp) * 100);
 }
